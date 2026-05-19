@@ -453,4 +453,503 @@ document.addEventListener('DOMContentLoaded', function() {
     // INITIALIZE
     // ===================================
     console.log('Navyakosh Website Initialized - Professional Theme');
+
+    // ===================================
+    // CROP TABS AND MODAL
+    // ===================================
+    const cropTabs = document.querySelectorAll('.crop-tab');
+    const cropCategoryLists = document.querySelectorAll('.crop-category-list');
+    const cropModal = document.getElementById('crop-modal');
+    const cropModalClose = document.querySelector('.crop-modal-close');
+    const cropModalTitle = document.querySelector('.crop-modal-crop-name');
+    const cropModalBody = document.querySelector('.crop-modal-body');
+    
+    // Crop usage data
+    const cropUsageData = {
+        // Grains
+        'paddy': {
+            name: 'Paddy',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Blue-green algae (anabaena), Azolla algae, Azospirillum, Phosphate Solubilizing Bacteria, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'maize': {
+            name: 'Maize',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Azospirillum, Phosphate Solubilizing Bacteria, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> As compared to other cereals, nutrient requirements of maize is more.</li>
+                </ul>
+            `
+        },
+        'mustard': {
+            name: 'Mustard',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Azotobacter, Phosphate Solubilizing Bacteria, and Sulphur Solubilizing bacteria, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'bajra': {
+            name: 'Bajra (Pearl Millets)',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Phosphate Solubilizing Bacteria, Azospirillum, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'jowar': {
+            name: 'Jowar (Great Millets)',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Phosphate Solubilizing Bacteria, Azospirillum, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'wheat': {
+            name: 'Wheat',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Azospirillium, Azotobacter, Phosphate Solubilizing Bacteria, and Sulphur Solubilizing bacteria, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        // Fruits
+        'mango': {
+            name: 'Mango',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 4-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'banana': {
+            name: 'Banana',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 500 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 1 Kg Navyakosh Organic Fertilizer per plant at the base after 6 months of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'watermelon': {
+            name: 'Watermelon',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'pomegranate': {
+            name: 'Pomegranate',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 1-2 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'muskmelon': {
+            name: 'Muskmelon',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'tomato': {
+            name: 'Tomato',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azotobacter, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        // Vegetables
+        'cucumber': {
+            name: 'Cucumber',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> For Cucumber application is required two times throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'carrot': {
+            name: 'Carrot',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> By using broadcast pattern apply 4-5 bags per acre during seedbed preparation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> For Carrot this fertilizer is required only once throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'radish': {
+            name: 'Radish',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> By using broadcast pattern apply 4-5 bags per acre during seedbed preparation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> For Radish this fertilizer is required only once throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'cabbage': {
+            name: 'Cabbage',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'capsicum': {
+            name: 'Capsicum',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azotobacter, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'brinjal': {
+            name: 'Brinjal',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azotobacter, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        // Nuts & Pulses
+        'walnut': {
+            name: 'Walnut',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'groundnut': {
+            name: 'Ground Nut',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Phosphate Solubilizing Bacteria, Rhizobium, Azospirillum, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'soybean': {
+            name: 'Soya Beans',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Rhizobium, Phosphate Solubilizing Bacteria, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'chickpea': {
+            name: 'Chickpea Dal',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Rhizobium, Phosphate Solubilizing Bacteria, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'turdal': {
+            name: 'Tur Dal',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Rhizobium, Phosphate Solubilizing Bacteria, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'cashewnut': {
+            name: 'Cashew Nut',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 3-4 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'arecanut': {
+            name: 'Areca Nut',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-3 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        // Other Crops
+        'cotton': {
+            name: 'Cotton',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before sowing on the ridges.</li>
+                    <li><strong>Second Dose (Irrigated Crops):</strong> A second dose of 2-3 bags can be applied 45 days after sowing near the base of plants, just after weeding.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Silicate Solubilizing Bacteria, Phosphate Solubilizing Bacteria, Azospirillum, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'sugarcane': {
+            name: 'Sugarcane',
+            content: `
+                <ul>
+                    <li><strong>1st Application:</strong> Apply 5-6 bags per acre in furrows before planting setts.</li>
+                    <li><strong>Second Dose:</strong> Apply 3-4 bags per acre as side dressing after 60-90 days.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Azotobacter, Phosphate Solubilizing Bacteria, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'palm': {
+            name: 'Palm',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'coffee': {
+            name: 'Coffee',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'tobacco': {
+            name: 'Tobacco',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
+                    <li><strong>Second Application:</strong> Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                </ul>
+            `
+        },
+        'coconut': {
+            name: 'Coconut',
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        }
+    };
+
+    // Crop tabs functionality
+    if (cropTabs.length > 0) {
+        cropTabs.forEach(tab => {
+            tab.addEventListener('click', function() {
+                const category = this.getAttribute('data-category');
+                
+                // Update active tab
+                cropTabs.forEach(t => t.classList.remove('active'));
+                this.classList.add('active');
+                
+                // Show corresponding crop list
+                cropCategoryLists.forEach(list => {
+                    if (list.getAttribute('data-category') === category) {
+                        list.classList.add('active');
+                    } else {
+                        list.classList.remove('active');
+                    }
+                });
+            });
+        });
+    }
+
+    // Crop modal functionality
+    const cropReadMoreBtns = document.querySelectorAll('.crop-read-more-btn');
+    
+    if (cropReadMoreBtns.length > 0 && cropModal) {
+        cropReadMoreBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const cropItem = this.closest('.crop-list-item');
+                const cropKey = cropItem.getAttribute('data-crop');
+                const cropData = cropUsageData[cropKey];
+                
+                if (cropData) {
+                    cropModalTitle.textContent = cropData.name;
+                    cropModalBody.innerHTML = cropData.content;
+                    cropModal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close modal
+        if (cropModalClose) {
+            cropModalClose.addEventListener('click', function() {
+                cropModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+        
+        // Close on outside click
+        cropModal.addEventListener('click', function(e) {
+            if (e.target === cropModal) {
+                cropModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+        
+        // Close on escape
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && cropModal.classList.contains('active')) {
+                cropModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    }
+
+    // ===================================
+    // PRODUCTS CAROUSEL
+    // ===================================
+    const carouselTrack = document.querySelector('.products-carousel-track');
+    const carouselPrev = document.querySelector('.carousel-prev');
+    const carouselNext = document.querySelector('.carousel-next');
+    const carouselDots = document.querySelectorAll('.carousel-dot');
+    
+    if (carouselTrack) {
+        const carouselCards = carouselTrack.querySelectorAll('.carousel-product-card');
+        let currentIndex = 0;
+        let cardsPerView = 3;
+        let cardWidth = 0;
+        let autoSlideInterval;
+        
+        // Calculate cards per view based on screen width
+        function updateCardsPerView() {
+            if (window.innerWidth <= 768) {
+                cardsPerView = 1;
+            } else if (window.innerWidth <= 1024) {
+                cardsPerView = 2;
+            } else {
+                cardsPerView = 3;
+            }
+            cardWidth = carouselTrack.parentElement.offsetWidth / cardsPerView;
+        }
+        
+        function updateCarousel() {
+            updateCardsPerView();
+            const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+            if (currentIndex > maxIndex) currentIndex = maxIndex;
+            
+            const translateX = currentIndex * (cardWidth + 30); // 30 is the gap
+            carouselTrack.style.transform = `translateX(-${translateX}px)`;
+            
+            // Update dots
+            carouselDots.forEach((dot, index) => {
+                if (index === currentIndex) {
+                    dot.classList.add('active');
+                } else {
+                    dot.classList.remove('active');
+                }
+            });
+        }
+        
+        function nextSlide() {
+            const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+            currentIndex = (currentIndex + 1) > maxIndex ? 0 : currentIndex + 1;
+            updateCarousel();
+        }
+        
+        function prevSlide() {
+            const maxIndex = Math.max(0, carouselCards.length - cardsPerView);
+            currentIndex = (currentIndex - 1) < 0 ? maxIndex : currentIndex - 1;
+            updateCarousel();
+        }
+        
+        function startAutoSlide() {
+            autoSlideInterval = setInterval(nextSlide, 4000);
+        }
+        
+        function stopAutoSlide() {
+            clearInterval(autoSlideInterval);
+        }
+        
+        // Event listeners
+        if (carouselNext) {
+            carouselNext.addEventListener('click', function() {
+                stopAutoSlide();
+                nextSlide();
+                startAutoSlide();
+            });
+        }
+        
+        if (carouselPrev) {
+            carouselPrev.addEventListener('click', function() {
+                stopAutoSlide();
+                prevSlide();
+                startAutoSlide();
+            });
+        }
+        
+        carouselDots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                stopAutoSlide();
+                currentIndex = index;
+                updateCarousel();
+                startAutoSlide();
+            });
+        });
+        
+        // Initialize
+        updateCarousel();
+        startAutoSlide();
+        
+        // Update on resize
+        window.addEventListener('resize', updateCarousel);
+        
+        // Pause on hover
+        carouselTrack.parentElement.addEventListener('mouseenter', stopAutoSlide);
+        carouselTrack.parentElement.addEventListener('mouseleave', startAutoSlide);
+    }
 });
