@@ -251,182 +251,507 @@ include 'includes/header.php';
                     <i class="fas fa-tractor"></i>
                     Crop Solutions
                 </span>
-                <h2 class="section-title">Specialized Solutions for <span>Every Crop</span></h2>
+                <h2 class="section-title">How to Use <span>Navyakosh</span></h2>
                 <p class="section-description" style="color: rgba(255,255,255,0.8);">
                     Navyakosh offers tailored bio-fertilizer solutions designed specifically 
                     for different crops, ensuring optimal results.
                 </p>
             </div>
 
-            <div class="crops-grid">
-                <a href="crop-detail.php?crop=legumes" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/legumes.jpg" alt="Healthy legume plants">
-                    </div>
-                    <h3 class="crop-name">Navyakosh for Legumes</h3>
-                    <p class="crop-description">
-                        Enhanced nitrogen fixation and improved pod development for higher yields.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+            <!-- Crop Category Tabs -->
+            <div class="crop-tabs reveal">
+                <button class="crop-tab active" data-category="grains">Grains</button>
+                <button class="crop-tab" data-category="fruits">Fruits</button>
+                <button class="crop-tab" data-category="vegetables">Vegetables</button>
+                <button class="crop-tab" data-category="nuts">Nuts & Pulses</button>
+                <button class="crop-tab" data-category="other">Other Crops</button>
+            </div>
 
-                <a href="crop-detail.php?crop=tobacco" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/tobacco.jpg" alt="Healthy tobacco leaves">
+            <!-- Crops List by Category -->
+            <div class="crops-list-container reveal">
+                <!-- Grains -->
+                <div class="crop-category-list active" data-category="grains">
+                    <div class="crop-list-item" data-crop="paddy">
+                        <div class="crop-item-image">
+                            <img src="images/rice.jpg" alt="Paddy">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Paddy</h4>
+                            <p>Navyakosh for Paddy</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
                     </div>
-                    <h3 class="crop-name">Navyakosh for Tobacco</h3>
-                    <p class="crop-description">
-                        Quality-focused nutrition for uniform leaf development and consistency.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+                    <div class="crop-list-item" data-crop="maize">
+                        <div class="crop-item-image">
+                            <img src="images/maize-crop.jpg" alt="Maize">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Maize</h4>
+                            <p>Navyakosh for Maize</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="mustard">
+                        <div class="crop-item-image">
+                            <img src="images/mustard-crop.jpg" alt="Mustard">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Mustard</h4>
+                            <p>Navyakosh for Mustard</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="bajra">
+                        <div class="crop-item-image">
+                            <img src="images/bajra-crop.jpg" alt="Bajra (Pearl Millets)">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Bajra (Pearl Millets)</h4>
+                            <p>Navyakosh for Bajra (Pearl Millets)</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="jowar">
+                        <div class="crop-item-image">
+                            <img src="images/jowar-crop.jpg" alt="Jowar (Great Millets)">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Jowar (Great Millets)</h4>
+                            <p>Navyakosh for Jowar (Great Millets)</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="wheat">
+                        <div class="crop-item-image">
+                            <img src="images/wheat-crop.jpg" alt="Wheat">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Wheat</h4>
+                            <p>Navyakosh for Wheat</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                </div>
 
-                <a href="crop-detail.php?crop=maize" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/navyakosh-maize.jpeg" alt="Golden maize field">
+                <!-- Fruits -->
+                <div class="crop-category-list" data-category="fruits">
+                    <div class="crop-list-item" data-crop="mango">
+                        <div class="crop-item-image">
+                            <img src="images/navyakosh-horticulture.png" alt="Mango">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Mango</h4>
+                            <p>Navyakosh for Mango</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
                     </div>
-                    <h3 class="crop-name">Navyakosh for Maize</h3>
-                    <p class="crop-description">
-                        Maximize grain filling and stalk strength for abundant harvest.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+                    <div class="crop-list-item" data-crop="banana">
+                        <div class="crop-item-image">
+                            <img src="images/palm.jpg" alt="Banana">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Banana</h4>
+                            <p>Navyakosh for Banana</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="watermelon">
+                        <div class="crop-item-image">
+                            <img src="images/Watermelon.jpg" alt="Watermelon">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Watermelon</h4>
+                            <p>Navyakosh for Watermelon</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="pomegranate">
+                        <div class="crop-item-image">
+                            <img src="images/Horticulture.jpg" alt="Pomegranate">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Pomegranate</h4>
+                            <p>Navyakosh for Pomegranate</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="muskmelon">
+                        <div class="crop-item-image">
+                            <img src="images/Watermelon2.jpg" alt="Muskmelon">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Muskmelon</h4>
+                            <p>Navyakosh for Muskmelon</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="tomato">
+                        <div class="crop-item-image">
+                            <img src="images/tomato-crop.jpg" alt="Tomato">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Tomato</h4>
+                            <p>Navyakosh for Tomato</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                </div>
 
-                <a href="crop-detail.php?crop=rice" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/rice.jpg" alt="Lush green rice paddies">
+                <!-- Vegetables -->
+                <div class="crop-category-list" data-category="vegetables">
+                    <div class="crop-list-item" data-crop="cucumber">
+                        <div class="crop-item-image">
+                            <img src="images/cucumber-crop.jpg" alt="Cucumber">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Cucumber</h4>
+                            <p>Navyakosh for Cucumber</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
                     </div>
-                    <h3 class="crop-name">Navyakosh for Rice</h3>
-                    <p class="crop-description">
-                        Improved tillering and grain quality for premium rice production.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+                    <div class="crop-list-item" data-crop="carrot">
+                        <div class="crop-item-image">
+                            <img src="images/legume.jpeg" alt="Carrot">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Carrot</h4>
+                            <p>Navyakosh for Carrot</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="radish">
+                        <div class="crop-item-image">
+                            <img src="images/legumes.jpg" alt="Radish">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Radish</h4>
+                            <p>Navyakosh for Radish</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="cabbage">
+                        <div class="crop-item-image">
+                            <img src="images/navyakosh-horticulture.png" alt="Cabbage">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Cabbage</h4>
+                            <p>Navyakosh for Cabbage</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="capsicum">
+                        <div class="crop-item-image">
+                            <img src="images/capsicum-crop.jpg" alt="Capsicum">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Capsicum</h4>
+                            <p>Navyakosh for Capsicum</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="brinjal">
+                        <div class="crop-item-image">
+                            <img src="images/Horticulture2.jpg" alt="Brinjal">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Brinjal</h4>
+                            <p>Navyakosh for Brinjal</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                </div>
 
-                <a href="crop-detail.php?crop=sugarcane" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/sugarcane.jpg" alt="Tall sugarcane stalks">
+                <!-- Nuts & Pulses -->
+                <div class="crop-category-list" data-category="nuts">
+                    <div class="crop-list-item" data-crop="groundnut">
+                        <div class="crop-item-image">
+                            <img src="images/groundnut-crop.jpg" alt="Ground Nut">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Ground Nut</h4>
+                            <p>Navyakosh for Ground Nut</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
                     </div>
-                    <h3 class="crop-name">Navyakosh for Sugarcane</h3>
-                    <p class="crop-description">
-                        Enhanced sucrose content and robust cane growth for better yields.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+                    <div class="crop-list-item" data-crop="soybean">
+                        <div class="crop-item-image">
+                            <img src="images/soybean-crop.jpg" alt="Soya Beans">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Soya Beans</h4>
+                            <p>Navyakosh for Soya Beans</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="chickpea">
+                        <div class="crop-item-image">
+                            <img src="images/chickpea-dal.jpg" alt="Chickpea Dal">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Chickpea (Channa Dal)</h4>
+                            <p>Navyakosh for Gram Pulse</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="turdal">
+                        <div class="crop-item-image">
+                            <img src="images/tur-dal-crop.jpg" alt="Tur Dal">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Tur Dal</h4>
+                            <p>Navyakosh for Tur Dal</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="cashewnut">
+                        <div class="crop-item-image">
+                            <img src="images/cashew-nut.jpg" alt="Cashew Nut">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Cashew Nut</h4>
+                            <p>Navyakosh for Cashew Nut</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="arecanut">
+                        <div class="crop-item-image">
+                            <img src="images/areca-nut.jpg" alt="Areca Nut">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Areca Nut</h4>
+                            <p>Navyakosh for Areca Nut</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                </div>
 
-                <a href="crop-detail.php?crop=palm" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/palm.jpg" alt="Palm plantation">
+                <!-- Other Crops -->
+                <div class="crop-category-list" data-category="other">
+                    <div class="crop-list-item" data-crop="cotton">
+                        <div class="crop-item-image">
+                            <img src="images/cotton.jpeg" alt="Cotton">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Cotton</h4>
+                            <p>Navyakosh for Cotton</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
                     </div>
-                    <h3 class="crop-name">Navyakosh for Palm</h3>
-                    <p class="crop-description">
-                        Optimized nutrition for healthy fronds and increased oil production.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+                    <div class="crop-list-item" data-crop="sugarcane">
+                        <div class="crop-item-image">
+                            <img src="images/sugarcane.jpg" alt="Sugarcane">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Sugarcane</h4>
+                            <p>Navyakosh for Sugarcane</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="palm">
+                        <div class="crop-item-image">
+                            <img src="images/palm.jpg" alt="Palm">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Palm</h4>
+                            <p>Navyakosh for Palm</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="coffee">
+                        <div class="crop-item-image">
+                            <img src="images/coffee.jpg" alt="Coffee">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Coffee</h4>
+                            <p>Navyakosh for Coffee</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="tobacco">
+                        <div class="crop-item-image">
+                            <img src="images/tobacco.jpg" alt="Tobacco">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Tobacco</h4>
+                            <p>Navyakosh for Tobacco</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                    <div class="crop-list-item" data-crop="coconut">
+                        <div class="crop-item-image">
+                            <img src="images/palm2.jpg" alt="Coconut">
+                        </div>
+                        <div class="crop-item-info">
+                            <h4>Coconut</h4>
+                            <p>Navyakosh for Coconut</p>
+                        </div>
+                        <button class="crop-read-more-btn">Read More</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-                <a href="crop-detail.php?crop=watermelon" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/Watermelon.jpg" alt="Fresh watermelons">
-                    </div>
-                    <h3 class="crop-name">Navyakosh for Watermelon</h3>
-                    <p class="crop-description">
-                        Superior fruit development and sweetness for premium market quality.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+    <!-- Crop Usage Guide Modal -->
+    <div class="crop-modal" id="crop-modal">
+        <div class="crop-modal-content">
+            <button class="crop-modal-close">&times;</button>
+            <h2 class="crop-modal-title">Usage Guide</h2>
+            <h3 class="crop-modal-crop-name"></h3>
+            <div class="crop-modal-body"></div>
+        </div>
+    </div>
 
-                <a href="crop-detail.php?crop=coffee" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/coffee.jpg" alt="Coffee plantation">
-                    </div>
-                    <h3 class="crop-name">Navyakosh for Coffee</h3>
-                    <p class="crop-description">
-                        Enhanced bean quality and improved yield for specialty coffee production.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
-                </a>
+    <!-- Products Expertise Carousel Section -->
+    <section class="section expertise-products" id="products-preview">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">
+                    <i class="fas fa-box"></i>
+                    Our Expertise
+                </span>
+                <h2 class="section-title">Navyakosh <span>Organic Fertilizers</span></h2>
+                <p class="section-description">
+                    Discover our range of specialized organic fertilizers designed 
+                    for gardens, flowers, and sustainable agriculture.
+                </p>
+            </div>
 
-                <a href="crop-detail.php?crop=horticulture" class="crop-card reveal">
-                    <div class="crop-image">
-                        <img src="images/navyakosh-horticulture.png" alt="Horticulture crops">
+            <!-- Products Carousel -->
+            <div class="products-carousel-wrapper reveal">
+                <button class="carousel-nav carousel-prev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="products-carousel">
+                    <div class="products-carousel-track">
+                        <!-- Soil Activator -->
+                        <div class="carousel-product-card" data-product="soil-activator">
+                            <div class="carousel-product-image">
+                                <img src="images/bio-fertilizer.jpg" alt="Navyakosh Soil Activator">
+                                <span class="product-badge">Popular</span>
+                            </div>
+                            <div class="carousel-product-content">
+                                <span class="product-category">Soil Booster</span>
+                                <h3 class="product-title">Navyakosh Soil Activator</h3>
+                                <p class="product-description">
+                                    Rejuvenate your soil with our unique formula that replenishes essential nutrients, improves soil structure, and enhances microbial activity.
+                                </p>
+                                <a href="product-detail.php?product=soil-activator" class="product-btn">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Flower Booster -->
+                        <div class="carousel-product-card" data-product="flower-booster">
+                            <div class="carousel-product-image">
+                                <img src="images/fertilizer2.webp" alt="Navyakosh Flower Booster">
+                                <span class="product-badge">Best Seller</span>
+                            </div>
+                            <div class="carousel-product-content">
+                                <span class="product-category">Flower Care</span>
+                                <h3 class="product-title">Navyakosh Flower Booster</h3>
+                                <p class="product-description">
+                                    Enhance the beauty of your flowers with our unique mix of nutrients that enriches soil, supports strong root growth, and fosters plentiful blooming.
+                                </p>
+                                <a href="product-detail.php?product=flower-booster" class="product-btn">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Cacti and Succulent -->
+                        <div class="carousel-product-card" data-product="cacti-succulent">
+                            <div class="carousel-product-image">
+                                <img src="images/fertilizers.webp" alt="Navyakosh Cacti and Succulent">
+                                <span class="product-badge">Specialized</span>
+                            </div>
+                            <div class="carousel-product-content">
+                                <span class="product-category">Plant Care</span>
+                                <h3 class="product-title">Navyakosh Cacti & Succulent</h3>
+                                <p class="product-description">
+                                    Formulated to meet the unique nutritional needs of resilient plants, this specialized blend promotes healthy growth and vibrant foliage.
+                                </p>
+                                <a href="product-detail.php?product=cacti-succulent" class="product-btn">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Organic Fertilizer for Garden -->
+                        <div class="carousel-product-card" data-product="garden-fertilizer">
+                            <div class="carousel-product-image">
+                                <img src="images/front.jpeg" alt="Navyakosh Organic Fertilizer for Garden">
+                                <span class="product-badge">1kg Pack</span>
+                            </div>
+                            <div class="carousel-product-content">
+                                <span class="product-category">Garden Care</span>
+                                <h3 class="product-title">Navyakosh for Garden (1kg)</h3>
+                                <p class="product-description">
+                                    Boost your garden with crop-specific organic fertilizer designed for home gardeners who want higher yields, healthier soil, and sustainable farming.
+                                </p>
+                                <a href="product-detail.php?product=garden-fertilizer" class="product-btn">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Microbial Consortium -->
+                        <div class="carousel-product-card" data-product="microbial-consortium">
+                            <div class="carousel-product-image">
+                                <img src="images/soil-health.jpg" alt="Navyakosh Microbial Consortium">
+                                <span class="product-badge">Advanced</span>
+                            </div>
+                            <div class="carousel-product-content">
+                                <span class="product-category">Professional</span>
+                                <h3 class="product-title">Navyakosh Microbial Consortium</h3>
+                                <p class="product-description">
+                                    High-efficiency microbial inoculum with 18-22 beneficial microorganisms. Converts up to 2 metric tons of organic biomass into nutrient-rich biofertilizer.
+                                </p>
+                                <a href="product-detail.php?product=microbial-consortium" class="product-btn">Order Now</a>
+                            </div>
+                        </div>
+
+                        <!-- 50kg Pack -->
+                        <div class="carousel-product-card" data-product="50kg-pack">
+                            <div class="carousel-product-image">
+                                <img src="images/navyakosh-maize.jpeg" alt="Navyakosh Organic Fertilizer 50Kg Pack">
+                                <span class="product-badge">Bulk</span>
+                            </div>
+                            <div class="carousel-product-content">
+                                <span class="product-category">Farm Grade</span>
+                                <h3 class="product-title">Navyakosh 50Kg Pack</h3>
+                                <p class="product-description">
+                                    Boost your farm productivity with our crop-specific organic fertilizer. Designed for farmers who want higher yields and sustainable farming.
+                                </p>
+                                <a href="product-detail.php?product=50kg-pack" class="product-btn">Order Now</a>
+                            </div>
+                        </div>
                     </div>
-                    <h3 class="crop-name">Navyakosh for Horticulture</h3>
-                    <p class="crop-description">
-                        Complete nutrition solutions for vegetables, fruits, and ornamental plants.
-                    </p>
-                    <span class="crop-link">
-                        Learn More <i class="fas fa-arrow-right"></i>
-                    </span>
+                </div>
+
+                <button class="carousel-nav carousel-next" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="carousel-dots">
+                <button class="carousel-dot active" data-index="0"></button>
+                <button class="carousel-dot" data-index="1"></button>
+                <button class="carousel-dot" data-index="2"></button>
+                <button class="carousel-dot" data-index="3"></button>
+                <button class="carousel-dot" data-index="4"></button>
+                <button class="carousel-dot" data-index="5"></button>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;" class="reveal">
+                <a href="products.php" class="btn btn-primary">
+                    <i class="fas fa-th-large"></i>
+                    View All Products
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- Products Preview Section -->
-    <section class="section products" id="products-preview">
+    <!-- Keep old products section hidden for backward compatibility -->
+    <section class="section products" id="products-hidden" style="display: none;">
         <div class="container">
-            <div class="section-header reveal">
-                <span class="section-badge">
-                    <i class="fas fa-box"></i>
-                    Our Products
-                </span>
-                <h2 class="section-title">Premium <span>Bio-Fertilizers</span></h2>
-                <p class="section-description">
-                    Discover our range of high-quality organic fertilizers designed 
-                    to boost crop performance naturally.
-                </p>
-            </div>
-
-            <div class="products-filter reveal">
-                <button class="filter-btn active" data-filter="all">All Products</button>
-                <button class="filter-btn" data-filter="organic">Organic</button>
-                <button class="filter-btn" data-filter="npk">NPK</button>
-                <button class="filter-btn" data-filter="liquid">Liquid</button>
-                <button class="filter-btn" data-filter="soil">Soil Boosters</button>
-            </div>
-
             <div class="products-grid">
                 <div class="product-card reveal" data-category="organic">
-                    <div class="product-image">
-                        <img src="images/bio-fertilizer.jpg" alt="Organic Bio-Fertilizer">
-                        <span class="product-badge">Best Seller</span>
-                        <div class="product-actions">
-                            <a href="products.php" class="product-action-btn"><i class="fas fa-eye"></i></a>
-                            <a href="contact.php" class="product-action-btn"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">Organic Fertilizer</span>
-                        <h3 class="product-title">Navyakosh Bio-Gold</h3>
-                        <p class="product-description">
-                            Premium organic bio-fertilizer with beneficial microorganisms 
-                            for enhanced soil health and crop growth.
-                        </p>
-                        <div class="product-meta">
-                            <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card reveal" data-category="npk">
                     <div class="product-image">
                         <img src="images/bio-fertilizer.jpg" alt="NPK Bio-Boost">
                         <span class="product-badge">Popular</span>
