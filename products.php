@@ -2,8 +2,8 @@
 /**
  * Navyakosh Products Page
  */
-$page_title = 'Products | Navyakosh Bio-Fertilizers';
-$page_description = 'Explore Navyakosh\'s complete range of bio-fertilizers - Organic Fertilizers, NPK, Liquid Fertilizers, and Soil Boosters for all crops.';
+$page_title = 'Products | Navyakosh Organic Bio-Fertilizers';
+$page_description = 'Explore Navyakosh\'s complete range of organic bio-fertilizers enriched with active microorganisms for sustainable agriculture.';
 
 include 'includes/header.php';
 ?>
@@ -28,19 +28,19 @@ include 'includes/header.php';
                     <i class="fas fa-boxes"></i>
                     Product Categories
                 </span>
-                <h2 class="section-title">Complete Range of <span>Bio-Fertilizers</span></h2>
+                <h2 class="section-title">Complete Range of <span>Organic Bio-Fertilizers</span></h2>
                 <p class="section-description">
-                    Explore our comprehensive range of scientifically formulated bio-fertilizers 
-                    designed to meet the diverse needs of modern agriculture.
+                    Explore our comprehensive range of organic bio-fertilizers enriched with active microorganisms 
+                    designed to meet the diverse needs of sustainable modern agriculture.
                 </p>
             </div>
 
             <div class="products-filter reveal">
                 <button class="filter-btn active" data-filter="all">All Products</button>
-                <button class="filter-btn" data-filter="organic">Organic Fertilizers</button>
-                <button class="filter-btn" data-filter="npk">NPK Fertilizers</button>
-                <button class="filter-btn" data-filter="liquid">Liquid Fertilizers</button>
-                <button class="filter-btn" data-filter="soil">Soil Boosters</button>
+                <button class="filter-btn" data-filter="organic">Organic Bio-Fertilizers</button>
+                <button class="filter-btn" data-filter="cereals">For Cereals</button>
+                <button class="filter-btn" data-filter="vegetables">For Vegetables</button>
+                <button class="filter-btn" data-filter="plantation">For Plantation Crops</button>
             </div>
         </div>
     </section>
@@ -156,10 +156,10 @@ include 'includes/header.php';
                     </div>
                 </div>
 
-                <!-- NPK Fertilizers -->
-                <div class="product-card reveal" data-category="npk">
+                <!-- Cereal Crops Bio-Fertilizers -->
+                <div class="product-card reveal" data-category="cereals">
                     <div class="product-image">
-                        <img src="images/maize.jpeg" alt="Navyakosh NPK Plus">
+                        <img src="images/maize.jpeg" alt="Navyakosh for Maize">
                         <span class="product-badge">Popular</span>
                         <div class="product-actions">
                             <a href="crop-detail.php?crop=maize" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
@@ -167,23 +167,23 @@ include 'includes/header.php';
                         </div>
                     </div>
                     <div class="product-content">
-                        <span class="product-category">NPK Fertilizer</span>
-                        <h3 class="product-title">Navyakosh NPK Plus</h3>
+                        <span class="product-category">Organic Bio-Fertilizer</span>
+                        <h3 class="product-title">Navyakosh for Maize</h3>
                         <p class="product-description">
-                            Balanced NPK formulation (10:26:26) enriched with beneficial bacteria 
-                            for complete plant nutrition and enhanced yield.
+                            Organic bio-fertilizer enriched with Azospirillum and VAM for 
+                            enhanced grain filling and stronger stalk development.
                         </p>
                         <div style="margin-bottom: 15px;">
                             <strong style="color: var(--dark);">Key Benefits:</strong>
                             <ul style="margin-top: 8px; color: var(--gray); font-size: 0.9rem;">
-                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Complete nutrition profile</li>
-                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Enhanced grain filling</li>
-                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Stronger plant structure</li>
+                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Improved grain filling 25-35%</li>
+                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Stronger stalk development</li>
+                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Enhanced drought tolerance</li>
                             </ul>
                         </div>
                         <div style="background: var(--light); padding: 12px; border-radius: 10px; margin-bottom: 15px;">
                             <strong style="font-size: 0.85rem; color: var(--dark);">Usage:</strong>
-                            <span style="font-size: 0.85rem; color: var(--gray);"> 50-75 kg/acre based on crop</span>
+                            <span style="font-size: 0.85rem; color: var(--gray);"> 4-5 bags/acre at sowing</span>
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
@@ -192,33 +192,33 @@ include 'includes/header.php';
                     </div>
                 </div>
 
-                <div class="product-card reveal" data-category="npk">
+                <div class="product-card reveal" data-category="cereals">
                     <div class="product-image">
-                        <img src="images/cotton.jpeg" alt="Navyakosh Rice NPK">
-                        <span class="product-badge">For Rice</span>
+                        <img src="images/rice.jpg" alt="Navyakosh for Rice">
+                        <span class="product-badge">For Paddy</span>
                         <div class="product-actions">
                             <a href="crop-detail.php?crop=rice" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
                             <a href="#" class="product-action-btn" aria-label="Add to Wishlist"><i class="fas fa-heart"></i></a>
                         </div>
                     </div>
                     <div class="product-content">
-                        <span class="product-category">NPK Fertilizer</span>
-                        <h3 class="product-title">Navyakosh Rice NPK</h3>
+                        <span class="product-category">Organic Bio-Fertilizer</span>
+                        <h3 class="product-title">Navyakosh for Rice (Paddy)</h3>
                         <p class="product-description">
-                            Specially designed NPK ratio for rice cultivation with enhanced 
-                            tillering and superior grain quality.
+                            Organic bio-fertilizer with Azospirillum and PSB for improved 
+                            tillering and superior grain quality in paddy.
                         </p>
                         <div style="margin-bottom: 15px;">
                             <strong style="color: var(--dark);">Key Benefits:</strong>
                             <ul style="margin-top: 8px; color: var(--gray); font-size: 0.9rem;">
-                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Improved tillering</li>
+                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Improved tillering by 30%</li>
                                 <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Better grain quality</li>
-                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Disease resistance</li>
+                                <li style="margin-bottom: 5px;"><i class="fas fa-check" style="color: var(--primary); margin-right: 8px;"></i>Enhanced disease resistance</li>
                             </ul>
                         </div>
                         <div style="background: var(--light); padding: 12px; border-radius: 10px; margin-bottom: 15px;">
                             <strong style="font-size: 0.85rem; color: var(--dark);">Usage:</strong>
-                            <span style="font-size: 0.85rem; color: var(--gray);"> 60-80 kg/acre in 2-3 splits</span>
+                            <span style="font-size: 0.85rem; color: var(--gray);"> 4-5 bags/acre at transplanting</span>
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
@@ -227,7 +227,7 @@ include 'includes/header.php';
                     </div>
                 </div>
 
-                <!-- Liquid Fertilizers -->
+                <!-- Vegetable Crops Bio-Fertilizers -->
                 <div class="product-card reveal" data-category="liquid">
                     <div class="product-image">
                         <img src="images/crops-collage.jpg" alt="Navyakosh Liquid Pro">

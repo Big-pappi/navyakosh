@@ -40,12 +40,12 @@ function formatProductEmailHeader($name, $email) {
     return '"' . $clean_name . '" <' . $clean_email . '>';
 }
 
-// Crop data with multiple images
+// Crop data with multiple images and detailed usage guides
 $crops = [
     'legumes' => [
         'name' => 'Navyakosh for Legumes',
-        'title' => 'Premium Bio-Fertilizer for Legumes',
-        'description' => 'Enhanced nitrogen fixation and improved pod development for higher yields. Our specially formulated bio-fertilizer contains Rhizobium bacteria that work symbiotically with legume roots.',
+        'title' => 'Premium Organic Bio-Fertilizer for Legumes',
+        'description' => 'Enhanced nitrogen fixation and improved pod development for higher yields. Our specially formulated organic bio-fertilizer contains Rhizobium bacteria that work symbiotically with legume roots.',
         'benefits' => [
             'Enhanced nitrogen fixation up to 40%',
             'Better pod formation and filling',
@@ -54,15 +54,20 @@ $crops = [
             'Better soil health after harvest',
             'Reduced need for chemical fertilizers'
         ],
-        'usage' => '20-30 kg/acre at sowing time. Mix with seeds before planting or apply as soil treatment.',
-        'suitable_crops' => 'Groundnuts, Beans, Peas, Lentils, Soybeans, Chickpeas',
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.',
+            'second_dose' => 'For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Rhizobium, Phosphate Solubilizing Bacteria, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
+        'suitable_crops' => 'Groundnuts, Soya Beans, Chickpea (Channa Dal), Tur Dal, Beans, Peas, Lentils',
         'images' => ['legumes.jpg', 'legume.jpg', 'legume1.jpg', 'Legume2.jpg'],
         'main_image' => 'legumes.jpg'
     ],
     'tobacco' => [
         'name' => 'Navyakosh for Tobacco',
-        'title' => 'Quality-Focused Nutrition for Tobacco',
-        'description' => 'Quality-focused nutrition for uniform leaf development, texture consistency, and superior tobacco quality. Our formulation ensures optimal nutrient balance for premium leaf production.',
+        'title' => 'Quality-Focused Organic Bio-Fertilizer for Tobacco',
+        'description' => 'Quality-focused nutrition for uniform leaf development, texture consistency, and superior tobacco quality. Our organic formulation ensures optimal nutrient balance for premium leaf production.',
         'benefits' => [
             'Uniform leaf development',
             'Better texture and quality',
@@ -71,15 +76,20 @@ $crops = [
             'Soil health restoration',
             'Consistent crop quality'
         ],
-        'usage' => '30-40 kg/acre, split application. First at transplanting, second 30 days after.',
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before sowing on the ridges.',
+            'second_dose' => 'A second dose of 2-3 bags can be applied 45 days after sowing near the base of plants, just after weeding.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Silicate Solubilizing Bacteria, Phosphate Solubilizing Bacteria, Azospirillum, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
         'suitable_crops' => 'Virginia Tobacco, Burley Tobacco, Oriental Tobacco',
         'images' => ['tobacco.jpg', 'tobacco1.jpg', 'tobacco2.jpg'],
         'main_image' => 'tobacco.jpg'
     ],
     'maize' => [
         'name' => 'Navyakosh for Maize',
-        'title' => 'Maximum Yield Solution for Maize',
-        'description' => 'Maximize grain filling and stalk strength for abundant harvest. Our bio-fertilizer enhances nutrient uptake during critical growth stages.',
+        'title' => 'Maximum Yield Organic Bio-Fertilizer for Maize',
+        'description' => 'Maximize grain filling and stalk strength for abundant harvest. Our organic bio-fertilizer enhances nutrient uptake during critical growth stages through active microorganisms.',
         'benefits' => [
             'Improved grain filling by 25-35%',
             'Stronger stalk development',
@@ -88,15 +98,20 @@ $crops = [
             'Uniform cob development',
             'Higher kernel weight'
         ],
-        'usage' => '50-75 kg/acre based on soil type. Apply at sowing and knee-high stage.',
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.',
+            'second_dose' => 'For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Phosphate Solubilizing Bacteria, Azospirillum, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
         'suitable_crops' => 'Field Corn, Sweet Corn, Popcorn, Baby Corn',
         'images' => ['maize.jpg', 'Maize1.jpg', 'Maize2.jpg', 'Maize3.jpg'],
         'main_image' => 'navyakosh-maize.jpeg'
     ],
     'rice' => [
-        'name' => 'Navyakosh for Rice',
-        'title' => 'Premium Bio-Fertilizer for Rice Cultivation',
-        'description' => 'Improved tillering and grain quality for premium rice production. Specially designed for paddy cultivation with enhanced nutrient release.',
+        'name' => 'Navyakosh for Rice (Paddy)',
+        'title' => 'Premium Organic Bio-Fertilizer for Rice Cultivation',
+        'description' => 'Improved tillering and grain quality for premium rice production. Specially designed organic bio-fertilizer for paddy cultivation with enhanced nutrient release through beneficial microorganisms.',
         'benefits' => [
             'Improved tillering by 30%',
             'Better grain quality and size',
@@ -105,15 +120,20 @@ $crops = [
             'Reduced lodging risk',
             'Higher milling recovery'
         ],
-        'usage' => '60-80 kg/acre in 2-3 splits. Basal, tillering, and panicle initiation stages.',
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before transplanting.',
+            'second_dose' => 'For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after transplanting, just after weeding.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Azospirillum, Phosphate Solubilizing Bacteria, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
         'suitable_crops' => 'Paddy Rice, Upland Rice, Aromatic Rice varieties',
         'images' => ['rice.jpg', 'Rice1.jpg', 'Rice2.jpg', 'Rice3.jpg'],
         'main_image' => 'rice.jpg'
     ],
     'sugarcane' => [
         'name' => 'Navyakosh for Sugarcane',
-        'title' => 'High-Yield Solution for Sugarcane',
-        'description' => 'Enhanced sucrose content and robust cane growth for better yields. Our formulation supports the long growing cycle of sugarcane.',
+        'title' => 'High-Yield Organic Bio-Fertilizer for Sugarcane',
+        'description' => 'Enhanced sucrose content and robust cane growth for better yields. Our organic formulation supports the long growing cycle of sugarcane through beneficial microorganisms.',
         'benefits' => [
             'Increased sucrose content by 15-20%',
             'Robust cane growth',
@@ -122,15 +142,20 @@ $crops = [
             'Enhanced disease resistance',
             'Higher tonnage per acre'
         ],
-        'usage' => '75-100 kg/acre. Apply at planting and earthing-up stages.',
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before planting.',
+            'second_dose' => 'A second dose of 2-3 bags can be applied 60-90 days after planting near the base of plants.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Phosphate Solubilizing Bacteria, Azotobacter, Vesicular Arbuscular Mycorrhiza (VAM), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
         'suitable_crops' => 'Sugar Cane, Jaggery Cane varieties',
         'images' => ['sugarcane.jpg', 'Sugarcane1.jpg', 'Sugarcane2.jpg', 'Sugarcane3.jpg', 'Sugarcane13.jpg'],
         'main_image' => 'sugarcane.jpg'
     ],
     'palm' => [
         'name' => 'Navyakosh for Palm',
-        'title' => 'Long-Term Nutrition for Palm Plantations',
-        'description' => 'Optimized nutrition for healthy fronds and increased oil production. Designed for the unique nutritional needs of palm cultivation.',
+        'title' => 'Long-Term Organic Bio-Fertilizer for Palm Plantations',
+        'description' => 'Optimized nutrition for healthy fronds and increased oil production. Designed for the unique nutritional needs of palm cultivation using beneficial microorganisms.',
         'benefits' => [
             'Increased oil yield by 20%',
             'Healthy frond development',
@@ -139,15 +164,20 @@ $crops = [
             'Improved disease resistance',
             'Sustainable long-term growth'
         ],
-        'usage' => '2-3 kg per palm, applied around the drip circle. Twice yearly application.',
-        'suitable_crops' => 'Oil Palm, Coconut Palm, Date Palm',
+        'usage_guide' => [
+            'first_application' => 'Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.',
+            'second_dose' => '',
+            'mechanism' => 'Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => 'Apply 500 gram fertilizer per plant at the base during seedling transplantation.'
+        ],
+        'suitable_crops' => 'Oil Palm, Coconut Palm, Date Palm, Areca Nut',
         'images' => ['palm.jpg', 'palm2.jpg'],
         'main_image' => 'palm.jpg'
     ],
     'horticulture' => [
         'name' => 'Navyakosh for Horticulture',
-        'title' => 'Specialized Solution for Horticultural Crops',
-        'description' => 'Premium bio-fertilizer for fruits and vegetables. Enhances flavor, color, and nutritional content of produce.',
+        'title' => 'Specialized Organic Bio-Fertilizer for Horticultural Crops',
+        'description' => 'Premium organic bio-fertilizer for fruits and vegetables. Enhances flavor, color, and nutritional content of produce through active microorganisms.',
         'benefits' => [
             'Enhanced fruit quality',
             'Better color development',
@@ -156,15 +186,20 @@ $crops = [
             'Uniform fruit size',
             'Organic certification compatible'
         ],
-        'usage' => '25-50 kg/acre depending on crop. Apply during active growth.',
-        'suitable_crops' => 'Watermelon, Tomatoes, Peppers, Cucumbers, Fruits',
+        'usage_guide' => [
+            'first_application' => 'Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.',
+            'second_dose' => 'Apply 100 grams Navyakosh Organic Fertilizer per plant at the base after 45 days of seedling transplantation.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
+        'suitable_crops' => 'Watermelon, Muskmelon, Tomatoes, Brinjal, Capsicum, Cabbage, Carrot, Radish, Peppers, Cucumbers',
         'images' => ['Horticulture.jpg', 'Horticulture2.jpg', 'Horticulture3.jpg', 'Watermelon.jpg', 'Watermelon2.jpg'],
         'main_image' => 'navyakosh-horticulture.png'
     ],
     'coffee' => [
         'name' => 'Navyakosh for Coffee',
-        'title' => 'Premium Bio-Fertilizer for Coffee Plantations',
-        'description' => 'Specialized nutrition for superior coffee bean quality and yield. Enhances the characteristic flavors and aromas of coffee.',
+        'title' => 'Premium Organic Bio-Fertilizer for Coffee Plantations',
+        'description' => 'Specialized nutrition for superior coffee bean quality and yield. Enhances the characteristic flavors and aromas of coffee through beneficial microorganisms.',
         'benefits' => [
             'Enhanced bean quality',
             'Better flavor development',
@@ -173,10 +208,81 @@ $crops = [
             'Sustainable soil management',
             'Premium grade production'
         ],
-        'usage' => '1-2 kg per tree, applied twice yearly around the base.',
+        'usage_guide' => [
+            'first_application' => 'Dig a ring around stem, apply 2-3 kg of Navyakosh Organic fertilizer and cover it with soil.',
+            'second_dose' => '',
+            'mechanism' => 'Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => 'Apply 500 gram fertilizer per plant at the base during seedling transplantation.'
+        ],
         'suitable_crops' => 'Arabica Coffee, Robusta Coffee',
         'images' => ['coffee.jpg', 'coffee2.jpg'],
         'main_image' => 'coffee.jpg'
+    ],
+    'wheat' => [
+        'name' => 'Navyakosh for Wheat',
+        'title' => 'Premium Organic Bio-Fertilizer for Wheat',
+        'description' => 'Enhanced grain development and better yields for wheat cultivation. Our organic bio-fertilizer promotes healthy tillering and grain filling.',
+        'benefits' => [
+            'Improved tillering',
+            'Better grain quality',
+            'Enhanced disease resistance',
+            'Higher yield per acre',
+            'Improved soil health',
+            'Better grain weight'
+        ],
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.',
+            'second_dose' => 'For irrigated crops, a second dose of 2-3 bags can be applied 45-60 days after sowing, just after weeding.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Azospirillum, Azotobacter, Phosphate Solubilizing Bacteria, and Sulphur Solubilizing bacteria, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
+        'suitable_crops' => 'Wheat, Durum Wheat',
+        'images' => ['wheat.jpg'],
+        'main_image' => 'wheat.jpg'
+    ],
+    'cotton' => [
+        'name' => 'Navyakosh for Cotton',
+        'title' => 'Premium Organic Bio-Fertilizer for Cotton',
+        'description' => 'Enhanced boll development and fiber quality for cotton cultivation. Our organic bio-fertilizer promotes healthy plant growth and better yields.',
+        'benefits' => [
+            'Better boll development',
+            'Improved fiber quality',
+            'Enhanced pest resistance',
+            'Higher yield per acre',
+            'Soil health improvement',
+            'Better staple length'
+        ],
+        'usage_guide' => [
+            'first_application' => 'By using broadcast pattern apply 4-5 bags per acre during land preparation just before sowing on the ridges.',
+            'second_dose' => 'A second dose of 2-3 bags can be applied 45 days after sowing near the base of plants, just after weeding.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Silicate Solubilizing Bacteria, Phosphate Solubilizing Bacteria, Azospirillum, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
+        'suitable_crops' => 'Cotton, BT Cotton',
+        'images' => ['cotton.jpeg'],
+        'main_image' => 'cotton.jpeg'
+    ],
+    'banana' => [
+        'name' => 'Navyakosh for Banana',
+        'title' => 'Premium Organic Bio-Fertilizer for Banana',
+        'description' => 'Enhanced bunch development and fruit quality for banana cultivation. Specially formulated for the heavy nutrient requirements of banana plants.',
+        'benefits' => [
+            'Better bunch weight',
+            'Improved fruit quality',
+            'Enhanced disease resistance',
+            'Faster growth',
+            'Better soil health',
+            'Higher yield per plant'
+        ],
+        'usage_guide' => [
+            'first_application' => 'Apply 500 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.',
+            'second_dose' => 'Apply 1 Kg Navyakosh Organic Fertilizer per plant at the base after 6 months of seedling transplantation.',
+            'mechanism' => 'Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.',
+            'note' => ''
+        ],
+        'suitable_crops' => 'Banana, Plantain',
+        'images' => ['banana.jpg'],
+        'main_image' => 'banana.jpg'
     ]
 ];
 
@@ -384,17 +490,16 @@ include 'includes/header.php';
                         </ul>
                     </div>
 
-                    <div class="usage-section">
-                        <h3><i class="fas fa-info-circle"></i> Recommended Usage</h3>
-                        <p><?php echo htmlspecialchars($crop['usage']); ?></p>
-                    </div>
-
                     <div class="suitable-crops">
                         <h3><i class="fas fa-tractor"></i> Suitable For</h3>
                         <p><?php echo htmlspecialchars($crop['suitable_crops']); ?></p>
                     </div>
 
                     <div class="cta-buttons">
+                        <a href="#usage-guide" class="btn btn-secondary" style="background: var(--secondary); color: var(--dark);">
+                            <i class="fas fa-book-open"></i>
+                            How to Use
+                        </a>
                         <a href="#order-form" class="btn btn-primary">
                             <i class="fas fa-shopping-cart"></i>
                             Order Now
@@ -405,6 +510,77 @@ include 'includes/header.php';
                             WhatsApp Us
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Usage Guide Section -->
+    <section class="section usage-guide-section" id="usage-guide" style="background: linear-gradient(135deg, #1e7b3c 0%, #2e8b57 100%);">
+        <div class="container">
+            <div class="section-header reveal" style="color: white;">
+                <span class="section-badge" style="background: rgba(255,255,255,0.2); color: white;">
+                    <i class="fas fa-book-open"></i>
+                    Usage Guide
+                </span>
+                <h2 class="section-title" style="color: white;">How to Use <span style="color: #90EE90;"><?php echo htmlspecialchars($crop['name']); ?></span></h2>
+            </div>
+
+            <div class="usage-guide-content reveal">
+                <div class="usage-guide-card">
+                    <?php if (!empty($crop['usage_guide']['first_application'])): ?>
+                    <div class="usage-item">
+                        <div class="usage-icon">
+                            <i class="fas fa-seedling"></i>
+                        </div>
+                        <div class="usage-details">
+                            <h4>1st Application</h4>
+                            <p><?php echo htmlspecialchars($crop['usage_guide']['first_application']); ?></p>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($crop['usage_guide']['second_dose'])): ?>
+                    <div class="usage-item">
+                        <div class="usage-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <div class="usage-details">
+                            <h4>Second Dose (Irrigated Crops)</h4>
+                            <p><?php echo htmlspecialchars($crop['usage_guide']['second_dose']); ?></p>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+
+                    <div class="usage-item mechanism">
+                        <div class="usage-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <div class="usage-details">
+                            <h4>Mechanism</h4>
+                            <p><?php echo htmlspecialchars($crop['usage_guide']['mechanism']); ?></p>
+                        </div>
+                    </div>
+
+                    <?php if (!empty($crop['usage_guide']['note'])): ?>
+                    <div class="usage-item note">
+                        <div class="usage-icon">
+                            <i class="fas fa-exclamation-circle"></i>
+                        </div>
+                        <div class="usage-details">
+                            <h4>Note</h4>
+                            <p><?php echo htmlspecialchars($crop['usage_guide']['note']); ?></p>
+                        </div>
+                    </div>
+                    <?php endif; ?>
+                </div>
+
+                <div class="organic-badge-container">
+                    <div class="organic-badge">
+                        <i class="fas fa-leaf"></i>
+                        <span>100% Organic Bio-Fertilizer</span>
+                    </div>
+                    <p class="organic-note">Navyakosh contains active microorganisms that work naturally with your soil to provide sustainable nutrition for your crops.</p>
                 </div>
             </div>
         </div>
@@ -764,6 +940,144 @@ include 'includes/header.php';
             gap: 15px;
             margin-top: 30px;
             flex-wrap: wrap;
+        }
+
+        /* Usage Guide Section Styles */
+        .usage-guide-section {
+            padding: 80px 0;
+        }
+
+        .usage-guide-content {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .usage-guide-card {
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+        }
+
+        .usage-item {
+            display: flex;
+            gap: 20px;
+            padding: 25px 0;
+            border-bottom: 1px solid rgba(30, 123, 60, 0.15);
+        }
+
+        .usage-item:last-child {
+            border-bottom: none;
+        }
+
+        .usage-item.mechanism {
+            background: linear-gradient(135deg, rgba(30, 123, 60, 0.08) 0%, rgba(46, 139, 87, 0.08) 100%);
+            margin: 20px -40px;
+            padding: 25px 40px;
+            border-bottom: none;
+        }
+
+        .usage-item.note {
+            background: rgba(255, 193, 7, 0.1);
+            margin: 20px -40px -40px -40px;
+            padding: 25px 40px;
+            border-radius: 0 0 20px 20px;
+            border-bottom: none;
+        }
+
+        .usage-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e7b3c 0%, #2e8b57 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+
+        .usage-icon i {
+            color: white;
+            font-size: 1.3rem;
+        }
+
+        .usage-item.note .usage-icon {
+            background: linear-gradient(135deg, #f57c00 0%, #ff9800 100%);
+        }
+
+        .usage-details h4 {
+            font-family: var(--font-secondary);
+            font-size: 1.2rem;
+            color: #1e7b3c;
+            margin: 0 0 10px 0;
+            font-weight: 700;
+        }
+
+        .usage-details p {
+            color: var(--gray);
+            margin: 0;
+            line-height: 1.7;
+            font-size: 1rem;
+        }
+
+        .organic-badge-container {
+            margin-top: 40px;
+            text-align: center;
+        }
+
+        .organic-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 15px 30px;
+            border-radius: 50px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .organic-badge i {
+            font-size: 1.5rem;
+            color: #1e7b3c;
+        }
+
+        .organic-badge span {
+            font-weight: 700;
+            color: #1e7b3c;
+            font-size: 1.1rem;
+        }
+
+        .organic-note {
+            color: rgba(255, 255, 255, 0.9);
+            margin-top: 20px;
+            font-size: 0.95rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        @media (max-width: 768px) {
+            .usage-guide-section {
+                padding: 50px 0;
+            }
+
+            .usage-guide-card {
+                padding: 25px;
+            }
+
+            .usage-item {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .usage-item.mechanism,
+            .usage-item.note {
+                margin: 20px -25px;
+                padding: 20px 25px;
+            }
+
+            .usage-item.note {
+                margin-bottom: -25px;
+            }
         }
 
         /* Order Form Section Styles */
