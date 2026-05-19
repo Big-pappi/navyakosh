@@ -2,7 +2,43 @@
 /**
  * Navyakosh Crop Detail Page
  * Displays detailed information about each crop solution
+ * With integrated order form using server mail
  */
+
+// Server mail configuration (same as contact.php)
+$mail_config = [
+    'from_email' => 'support@bizlogicsolutions.com',
+    'from_name' => 'Navyakosh Bio-Fertilizers',
+    'to_email' => 'chedybreezy@gmail.com',
+];
+
+$order_success_message = '';
+$order_error_message = '';
+
+/**
+ * Send email through the hosting server.
+ */
+function sendProductOrderEmail($config, $to, $subject, $body, $reply_to = '', $reply_to_name = '') {
+    $headers = [
+        'MIME-Version: 1.0',
+        'Content-Type: text/html; charset=UTF-8',
+        'From: ' . formatProductEmailHeader($config['from_name'], $config['from_email']),
+        'X-Mailer: PHP/' . phpversion()
+    ];
+    
+    if ($reply_to) {
+        $headers[] = 'Reply-To: ' . formatProductEmailHeader($reply_to_name, $reply_to);
+    }
+    
+    $safe_subject = str_replace(["\r", "\n"], '', $subject);
+    return mail($to, $safe_subject, $body, implode("\r\n", $headers));
+}
+
+function formatProductEmailHeader($name, $email) {
+    $clean_name = str_replace(['"', "\r", "\n"], '', $name);
+    $clean_email = filter_var($email, FILTER_SANITIZE_EMAIL);
+    return '"' . $clean_name . '" <' . $clean_email . '>';
+}
 
 // Crop data with multiple images
 $crops = [
@@ -155,6 +191,118 @@ if (!isset($crops[$crop_key])) {
 
 $crop = $crops[$crop_key];
 
+// Process order form submission
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['order_product'])) {
+    // Sanitize inputs
+    $firstName = htmlspecialchars(trim($_POST['firstName'] ?? ''));
+    $lastName = htmlspecialchars(trim($_POST['lastName'] ?? ''));
+    $email = filter_var(trim($_POST['email'] ?? ''), FILTER_SANITIZE_EMAIL);
+    $phone = htmlspecialchars(trim($_POST['phone'] ?? ''));
+    $quantity = htmlspecialchars(trim($_POST['quantity'] ?? ''));
+    $farmSize = htmlspecialchars(trim($_POST['farmSize'] ?? ''));
+    $location = htmlspecialchars(trim($_POST['location'] ?? ''));
+    $message = htmlspecialchars(trim($_POST['message'] ?? ''));
+    $productName = htmlspecialchars($crop['name']);
+    
+    // Validation
+    $errors = [];
+    if (empty($firstName)) $errors[] = 'First name is required';
+    if (empty($lastName)) $errors[] = 'Last name is required';
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL)) $errors[] = 'Valid email is required';
+    if (empty($phone)) $errors[] = 'Phone number is required';
+    
+    if (empty($errors)) {
+        // Build email content
+        $email_subject = "Product Order Request: $productName - $firstName $lastName";
+        
+        $email_body = "
+        <html>
+        <head>
+            <style>
+                body { font-family: Arial, sans-serif; line-height: 1.6; color: #333; }
+                .container { max-width: 600px; margin: 0 auto; padding: 20px; }
+                .header { background: #1e7b3c; color: white; padding: 20px; text-align: center; }
+                .product-highlight { background: #e8f5e9; padding: 20px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #1e7b3c; }
+                .content { padding: 20px; background: #f5f5f5; }
+                .field { margin-bottom: 15px; }
+                .label { font-weight: bold; color: #1e7b3c; }
+                .value { margin-top: 5px; }
+                .footer { text-align: center; padding: 20px; font-size: 12px; color: #666; }
+            </style>
+        </head>
+        <body>
+            <div class='container'>
+                <div class='header'>
+                    <h1>New Product Order Request</h1>
+                </div>
+                <div class='product-highlight'>
+                    <h2 style='margin: 0 0 10px 0; color: #1e7b3c;'>Product: $productName</h2>
+                    <p style='margin: 0; color: #555;'>A customer is interested in ordering this product.</p>
+                </div>
+                <div class='content'>
+                    <h3 style='color: #1e7b3c; border-bottom: 2px solid #1e7b3c; padding-bottom: 10px;'>Customer Information</h3>
+                    <div class='field'>
+                        <div class='label'>Name:</div>
+                        <div class='value'>$firstName $lastName</div>
+                    </div>
+                    <div class='field'>
+                        <div class='label'>Email:</div>
+                        <div class='value'>$email</div>
+                    </div>
+                    <div class='field'>
+                        <div class='label'>Phone:</div>
+                        <div class='value'>$phone</div>
+                    </div>
+                    <div class='field'>
+                        <div class='label'>Location:</div>
+                        <div class='value'>" . ($location ?: 'Not provided') . "</div>
+                    </div>
+                    <h3 style='color: #1e7b3c; border-bottom: 2px solid #1e7b3c; padding-bottom: 10px; margin-top: 25px;'>Order Details</h3>
+                    <div class='field'>
+                        <div class='label'>Product:</div>
+                        <div class='value'>$productName</div>
+                    </div>
+                    <div class='field'>
+                        <div class='label'>Quantity Needed:</div>
+                        <div class='value'>" . ($quantity ?: 'Not specified') . "</div>
+                    </div>
+                    <div class='field'>
+                        <div class='label'>Farm Size:</div>
+                        <div class='value'>" . ($farmSize ?: 'Not specified') . "</div>
+                    </div>
+                    <div class='field'>
+                        <div class='label'>Additional Message:</div>
+                        <div class='value'>" . ($message ?: 'No additional message') . "</div>
+                    </div>
+                </div>
+                <div class='footer'>
+                    This order request was sent from the Navyakosh website product page.
+                </div>
+            </div>
+        </body>
+        </html>
+        ";
+        
+        // Send email using the hosting server
+        $sent = sendProductOrderEmail(
+            $mail_config,
+            $mail_config['to_email'],
+            $email_subject,
+            $email_body,
+            $email,
+            "$firstName $lastName"
+        );
+        
+        if ($sent) {
+            $order_success_message = "Thank you, $firstName! Your order request for <strong>$productName</strong> has been submitted successfully. Our team will contact you within 24 hours.";
+        } else {
+            $order_error_message = "Sorry, there was an error sending your order request. Please try again or contact us directly at " . $mail_config['to_email'];
+        }
+    } else {
+        $order_error_message = implode('<br>', $errors);
+    }
+}
+
 // Filter images that actually exist
 $valid_images = [];
 foreach ($crop['images'] as $img) {
@@ -247,9 +395,9 @@ include 'includes/header.php';
                     </div>
 
                     <div class="cta-buttons">
-                        <a href="contact.php" class="btn btn-primary">
-                            <i class="fas fa-phone"></i>
-                            Get Quote
+                        <a href="#order-form" class="btn btn-primary">
+                            <i class="fas fa-shopping-cart"></i>
+                            Order Now
                         </a>
                         <a href="https://wa.me/255620636893?text=I'm interested in <?php echo urlencode($crop['name']); ?>" 
                            class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">
@@ -257,6 +405,150 @@ include 'includes/header.php';
                             WhatsApp Us
                         </a>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Order Form Section -->
+    <section class="section order-form-section" id="order-form" style="background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">
+                    <i class="fas fa-shopping-cart"></i>
+                    Place Your Order
+                </span>
+                <h2 class="section-title">Order <span><?php echo htmlspecialchars($crop['name']); ?></span></h2>
+                <p class="section-description">
+                    Fill out the form below with your details and we will contact you to complete your order.
+                </p>
+            </div>
+
+            <div class="order-form-container reveal">
+                <?php if ($order_success_message): ?>
+                <div class="alert alert-success">
+                    <div class="alert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                    </div>
+                    <div><?php echo $order_success_message; ?></div>
+                </div>
+                <?php endif; ?>
+                
+                <?php if ($order_error_message): ?>
+                <div class="alert alert-error">
+                    <div class="alert-icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                    </div>
+                    <div><?php echo $order_error_message; ?></div>
+                </div>
+                <?php endif; ?>
+
+                <div class="order-form-wrapper">
+                    <!-- Product Summary -->
+                    <div class="product-summary">
+                        <div class="product-summary-image">
+                            <img src="images/<?php echo htmlspecialchars($valid_images[0]); ?>" alt="<?php echo htmlspecialchars($crop['name']); ?>">
+                        </div>
+                        <div class="product-summary-info">
+                            <h3><?php echo htmlspecialchars($crop['name']); ?></h3>
+                            <p><?php echo htmlspecialchars(substr($crop['description'], 0, 120)); ?>...</p>
+                            <div class="product-summary-meta">
+                                <span><i class="fas fa-leaf"></i> Organic</span>
+                                <span><i class="fas fa-check-circle"></i> Certified</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Order Form -->
+                    <form class="order-form" method="POST" action="crop-detail.php?crop=<?php echo $crop_key; ?>#order-form">
+                        <input type="hidden" name="order_product" value="1">
+                        <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($crop['name']); ?>">
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>First Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="text" name="firstName" placeholder="Your First Name" required value="<?php echo htmlspecialchars($_POST['firstName'] ?? ''); ?>">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Last Name <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="text" name="lastName" placeholder="Your Last Name" required value="<?php echo htmlspecialchars($_POST['lastName'] ?? ''); ?>">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Email Address <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="email" name="email" placeholder="youremail@example.com" required value="<?php echo htmlspecialchars($_POST['email'] ?? ''); ?>">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Phone Number <span class="required">*</span></label>
+                                <div class="input-wrapper">
+                                    <input type="tel" name="phone" placeholder="+255 734 567 890" required value="<?php echo htmlspecialchars($_POST['phone'] ?? ''); ?>">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label>Quantity Needed</label>
+                                <div class="input-wrapper">
+                                    <select name="quantity">
+                                        <option value="">Select quantity</option>
+                                        <option value="1-10 kg">1-10 kg</option>
+                                        <option value="10-25 kg">10-25 kg</option>
+                                        <option value="25-50 kg">25-50 kg</option>
+                                        <option value="50-100 kg">50-100 kg</option>
+                                        <option value="100+ kg">100+ kg (Bulk Order)</option>
+                                    </select>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label>Farm Size</label>
+                                <div class="input-wrapper">
+                                    <select name="farmSize">
+                                        <option value="">Select farm size</option>
+                                        <option value="Less than 1 acre">Less than 1 acre</option>
+                                        <option value="1-5 acres">1-5 acres</option>
+                                        <option value="5-10 acres">5-10 acres</option>
+                                        <option value="10-50 acres">10-50 acres</option>
+                                        <option value="50+ acres">50+ acres</option>
+                                    </select>
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 9l6 6 6-6"/></svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Your Location</label>
+                            <div class="input-wrapper">
+                                <input type="text" name="location" placeholder="City, Region, Country" value="<?php echo htmlspecialchars($_POST['location'] ?? ''); ?>">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Additional Message</label>
+                            <div class="input-wrapper textarea-wrapper">
+                                <textarea name="message" rows="4" placeholder="Tell us about your specific requirements, delivery preferences, or any questions you have..."><?php echo htmlspecialchars($_POST['message'] ?? ''); ?></textarea>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Order Request
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -307,18 +599,22 @@ include 'includes/header.php';
             <div class="cta-content reveal">
                 <h2>Ready to Boost Your Crop Yield?</h2>
                 <p>
-                    Contact us today to learn more about <?php echo htmlspecialchars($crop['name']); ?> 
-                    and how it can transform your farm.
+                    Order <?php echo htmlspecialchars($crop['name']); ?> today 
+                    and transform your farm with organic bio-fertilizers.
                 </p>
-                <a href="contact.php" class="btn btn-primary">
-                    <i class="fas fa-phone"></i>
-                    Contact Us Today
+                <a href="#order-form" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Order Now
                 </a>
             </div>
         </div>
     </section>
 
     <style>
+        html {
+            scroll-behavior: smooth;
+        }
+
         .crop-detail-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -468,6 +764,231 @@ include 'includes/header.php';
             gap: 15px;
             margin-top: 30px;
             flex-wrap: wrap;
+        }
+
+        /* Order Form Section Styles */
+        .order-form-section {
+            padding: 80px 0;
+        }
+
+        .order-form-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .order-form-wrapper {
+            background: var(--white);
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        .product-summary {
+            display: flex;
+            gap: 20px;
+            padding: 25px;
+            background: linear-gradient(135deg, #1e7b3c 0%, #2e8b4c 100%);
+            color: white;
+        }
+
+        .product-summary-image {
+            width: 100px;
+            height: 100px;
+            border-radius: 12px;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .product-summary-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-summary-info h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.3rem;
+        }
+
+        .product-summary-info p {
+            margin: 0 0 12px 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.5;
+        }
+
+        .product-summary-meta {
+            display: flex;
+            gap: 15px;
+            font-size: 0.85rem;
+        }
+
+        .product-summary-meta span {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 4px 10px;
+            border-radius: 20px;
+        }
+
+        .order-form {
+            padding: 30px;
+        }
+
+        .order-form .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+
+        .order-form .form-group {
+            margin-bottom: 0;
+        }
+
+        .order-form .form-group:not(.form-row .form-group) {
+            margin-bottom: 20px;
+        }
+
+        .order-form label {
+            display: block;
+            font-weight: 600;
+            color: var(--dark);
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .order-form .required {
+            color: #e53935;
+        }
+
+        .order-form .input-wrapper {
+            position: relative;
+        }
+
+        .order-form .input-wrapper input,
+        .order-form .input-wrapper select,
+        .order-form .input-wrapper textarea {
+            width: 100%;
+            padding: 14px 45px 14px 16px;
+            border: 2px solid #e0e0e0;
+            border-radius: 12px;
+            font-size: 1rem;
+            transition: all 0.3s ease;
+            background: var(--white);
+            color: var(--dark);
+        }
+
+        .order-form .input-wrapper textarea {
+            padding-right: 16px;
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .order-form .input-wrapper input:focus,
+        .order-form .input-wrapper select:focus,
+        .order-form .input-wrapper textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 4px rgba(30, 123, 60, 0.1);
+        }
+
+        .order-form .input-wrapper svg {
+            position: absolute;
+            right: 14px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 20px;
+            height: 20px;
+            stroke: #999;
+            pointer-events: none;
+        }
+
+        .order-form .textarea-wrapper svg {
+            display: none;
+        }
+
+        .order-form .btn-submit {
+            width: 100%;
+            padding: 16px 30px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        /* Alert Styles */
+        .alert {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+        }
+
+        .alert-success {
+            background: #e8f5e9;
+            border: 1px solid #4caf50;
+            color: #2e7d32;
+        }
+
+        .alert-error {
+            background: #ffebee;
+            border: 1px solid #f44336;
+            color: #c62828;
+        }
+
+        .alert-icon {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
+        }
+
+        .alert-icon svg {
+            width: 100%;
+            height: 100%;
+        }
+
+        .alert-success .alert-icon svg {
+            stroke: #4caf50;
+        }
+
+        .alert-error .alert-icon svg {
+            stroke: #f44336;
+        }
+
+        @media (max-width: 768px) {
+            .order-form-section {
+                padding: 50px 0;
+            }
+
+            .order-form .form-row {
+                grid-template-columns: 1fr;
+                gap: 0;
+            }
+
+            .order-form .form-row .form-group {
+                margin-bottom: 20px;
+            }
+
+            .product-summary {
+                flex-direction: column;
+                text-align: center;
+                align-items: center;
+            }
+
+            .product-summary-meta {
+                justify-content: center;
+            }
+
+            .order-form {
+                padding: 20px;
+            }
         }
 
         /* Image Lightbox */
@@ -755,7 +1276,6 @@ include 'includes/header.php';
             .crop-detail-related .section-title {
                 font-size: 1.75rem;
             }
-        }
     </style>
 
     <!-- Lightbox -->

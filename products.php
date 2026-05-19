@@ -116,7 +116,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=legumes#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=tobacco#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -187,7 +187,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=maize#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -222,7 +222,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=rice#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -233,7 +233,7 @@ include 'includes/header.php';
                         <img src="images/crops-collage.jpg" alt="Navyakosh Liquid Pro">
                         <span class="product-badge">New</span>
                         <div class="product-actions">
-                            <a href="#" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="contact.php" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
                             <a href="#" class="product-action-btn" aria-label="Add to Wishlist"><i class="fas fa-heart"></i></a>
                         </div>
                     </div>
@@ -293,7 +293,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=sugarcane#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -304,7 +304,7 @@ include 'includes/header.php';
                         <img src="images/front.jpeg" alt="Navyakosh Soil Revive">
                         <span class="product-badge">Premium</span>
                         <div class="product-actions">
-                            <a href="#" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="contact.php" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
                             <a href="#" class="product-action-btn" aria-label="Add to Wishlist"><i class="fas fa-heart"></i></a>
                         </div>
                     </div>
@@ -364,7 +364,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=palm#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -384,8 +384,8 @@ include 'includes/header.php';
                         <img src="images/Watermelon.jpg" alt="Navyakosh Watermelon Special">
                         <span class="product-badge">New</span>
                         <div class="product-actions">
-                            <button class="product-action-btn product-view-btn" aria-label="Quick View"><i class="fas fa-eye"></i></button>
-                            <a href="contact.php" class="product-action-btn" aria-label="Enquire"><i class="fas fa-envelope"></i></a>
+                            <a href="crop-detail.php?crop=horticulture" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="crop-detail.php?crop=horticulture#order-form" class="product-action-btn" aria-label="Order"><i class="fas fa-shopping-cart"></i></a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -409,7 +409,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=horticulture#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
@@ -420,8 +420,8 @@ include 'includes/header.php';
                         <img src="images/coffee.jpg" alt="Navyakosh Coffee Premium">
                         <span class="product-badge">Specialty</span>
                         <div class="product-actions">
-                            <button class="product-action-btn product-view-btn" aria-label="Quick View"><i class="fas fa-eye"></i></button>
-                            <a href="contact.php" class="product-action-btn" aria-label="Enquire"><i class="fas fa-envelope"></i></a>
+                            <a href="crop-detail.php?crop=coffee" class="product-action-btn" aria-label="Quick View"><i class="fas fa-eye"></i></a>
+                            <a href="crop-detail.php?crop=coffee#order-form" class="product-action-btn" aria-label="Order"><i class="fas fa-shopping-cart"></i></a>
                         </div>
                     </div>
                     <div class="product-content">
@@ -445,7 +445,7 @@ include 'includes/header.php';
                         </div>
                         <div class="product-meta">
                             <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
+                            <a href="crop-detail.php?crop=coffee#order-form" class="product-btn">Order Now</a>
                         </div>
                     </div>
                 </div>
