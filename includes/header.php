@@ -102,10 +102,10 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
                 <ul class="nav-menu">
                     <li><a href="index.php" class="nav-link <?php echo $current_page == 'index.php' ? 'active' : ''; ?>">Home</a></li>
-                    <li><a href="about.php" class="nav-link <?php echo $current_page == 'about.php' ? 'active' : ''; ?>">About Us</a></li>
-                    <li><a href="products.php" class="nav-link <?php echo $current_page == 'products.php' ? 'active' : ''; ?>">Products</a></li>
-                    <li><a href="reviews.php" class="nav-link <?php echo $current_page == 'reviews.php' ? 'active' : ''; ?>">Reviews</a></li>
-                    <li><a href="https://bizlogicsolutions.com/" class="nav-link" >IT Section</a></li>
+                    <li><a href="index.php#about" class="nav-link">About Us</a></li>
+                    <li><a href="index.php#fertilizers" class="nav-link">Fertilizers</a></li>
+                    <li><a href="case.php" class="nav-link <?php echo $current_page == 'case.php' ? 'active' : ''; ?>">Case</a></li>
+                    <li><a href="https://bizlogicsolutions.com/" class="nav-link" target="_blank" rel="noopener noreferrer">IT Section</a></li>
                     <li><a href="contact.php" class="nav-link nav-cta">Contact Us</a></li>
                 </ul>
 

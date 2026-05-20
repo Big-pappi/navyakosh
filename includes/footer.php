@@ -32,10 +32,10 @@
                     <h4 class="footer-title">Quick Links</h4>
                     <ul class="footer-links">
                         <li><a href="index.php">Home</a></li>
-                        <li><a href="about.php">About Us</a></li>
-                        <li><a href="products.php">Products</a></li>
-                        <li><a href="products.php#faq">F.A.Q</a></li>
-                        <li><a href="reviews.php">Farmer Reviews</a></li>
+                        <li><a href="index.php#about">About Us</a></li>
+                        <li><a href="index.php#fertilizers">Fertilizers</a></li>
+                        <li><a href="case.php">Case Studies</a></li>
+                        <li><a href="https://bizlogicsolutions.com/" target="_blank" rel="noopener noreferrer">IT Section</a></li>
                         <li><a href="contact.php">Contact Us</a></li>
                     </ul>
                 </div>
