@@ -952,4 +952,105 @@ document.addEventListener('DOMContentLoaded', function() {
         carouselTrack.parentElement.addEventListener('mouseenter', stopAutoSlide);
         carouselTrack.parentElement.addEventListener('mouseleave', startAutoSlide);
     }
+
+    // ===================================
+    // FERTILIZER AUTO-MOVING CAROUSEL
+    // ===================================
+    const fertilizerCarousel = document.querySelector('.fertilizer-carousel');
+    const fertilizerCarouselTrack = document.querySelector('.fertilizer-carousel-track');
+    const fertilizerCards = document.querySelectorAll('.fertilizer-card');
+    const fertilizerPrev = document.querySelector('.fertilizer-prev');
+    const fertilizerNext = document.querySelector('.fertilizer-next');
+    const fertilizerDots = document.querySelectorAll('.fertilizer-dot');
+    
+    if (fertilizerCarouselTrack && fertilizerCards.length > 0) {
+        let fertilizerCurrentIndex = 0;
+        let fertilizerAutoSlideInterval;
+        const fertilizerAutoSlideDelay = 3000; // 3 seconds for smooth auto-scroll
+        
+        function getFertilizerCardsPerView() {
+            const screenWidth = window.innerWidth;
+            if (screenWidth >= 1200) return 4;
+            if (screenWidth >= 992) return 3;
+            if (screenWidth >= 768) return 2;
+            return 1;
+        }
+        
+        function updateFertilizerCarousel() {
+            const fertilizerCardsPerView = getFertilizerCardsPerView();
+            const maxIndex = Math.max(0, fertilizerCards.length - fertilizerCardsPerView);
+            
+            if (fertilizerCurrentIndex > maxIndex) {
+                fertilizerCurrentIndex = maxIndex;
+            }
+            
+            const cardWidth = fertilizerCards[0].offsetWidth + 25; // Include gap
+            const offset = -fertilizerCurrentIndex * cardWidth;
+            fertilizerCarouselTrack.style.transform = `translateX(${offset}px)`;
+            
+            // Update dots
+            fertilizerDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === fertilizerCurrentIndex);
+            });
+        }
+        
+        function nextFertilizerSlide() {
+            const fertilizerCardsPerView = getFertilizerCardsPerView();
+            const maxIndex = Math.max(0, fertilizerCards.length - fertilizerCardsPerView);
+            fertilizerCurrentIndex = (fertilizerCurrentIndex + 1) > maxIndex ? 0 : fertilizerCurrentIndex + 1;
+            updateFertilizerCarousel();
+        }
+        
+        function prevFertilizerSlide() {
+            const fertilizerCardsPerView = getFertilizerCardsPerView();
+            const maxIndex = Math.max(0, fertilizerCards.length - fertilizerCardsPerView);
+            fertilizerCurrentIndex = (fertilizerCurrentIndex - 1) < 0 ? maxIndex : fertilizerCurrentIndex - 1;
+            updateFertilizerCarousel();
+        }
+        
+        function startFertilizerAutoSlide() {
+            fertilizerAutoSlideInterval = setInterval(nextFertilizerSlide, fertilizerAutoSlideDelay);
+        }
+        
+        function stopFertilizerAutoSlide() {
+            clearInterval(fertilizerAutoSlideInterval);
+        }
+        
+        // Event listeners for navigation
+        if (fertilizerNext) {
+            fertilizerNext.addEventListener('click', function() {
+                stopFertilizerAutoSlide();
+                nextFertilizerSlide();
+                startFertilizerAutoSlide();
+            });
+        }
+        
+        if (fertilizerPrev) {
+            fertilizerPrev.addEventListener('click', function() {
+                stopFertilizerAutoSlide();
+                prevFertilizerSlide();
+                startFertilizerAutoSlide();
+            });
+        }
+        
+        fertilizerDots.forEach((dot, index) => {
+            dot.addEventListener('click', function() {
+                stopFertilizerAutoSlide();
+                fertilizerCurrentIndex = index;
+                updateFertilizerCarousel();
+                startFertilizerAutoSlide();
+            });
+        });
+        
+        // Initialize
+        updateFertilizerCarousel();
+        startFertilizerAutoSlide();
+        
+        // Update on resize
+        window.addEventListener('resize', updateFertilizerCarousel);
+        
+        // Pause on hover
+        fertilizerCarousel.addEventListener('mouseenter', stopFertilizerAutoSlide);
+        fertilizerCarousel.addEventListener('mouseleave', startFertilizerAutoSlide);
+    }
 });

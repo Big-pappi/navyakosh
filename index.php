@@ -20,7 +20,7 @@ include 'includes/header.php';
                 <div class="slide-content">
                     <span class="slide-tagline">FRESHNESS MATTERS</span>
                     <h1 class="slide-title">Cultivating Fresh Crops<br>for a Better Tomorrow</h1>
-                    <a href="products.php" class="btn btn-white">Discover More</a>
+                    <a href="#fertilizers" class="btn btn-white">Discover More</a>
                 </div>
             </div>
             
@@ -33,7 +33,7 @@ include 'includes/header.php';
                 <div class="slide-content">
                     <span class="slide-tagline">ORGANIC & FRESH FARM</span>
                     <h1 class="slide-title">Modern Farming Innovation<br>through Technology</h1>
-                    <a href="about.php" class="btn btn-white">Read More</a>
+                    <a href="#about" class="btn btn-white">Read More</a>
                 </div>
             </div>
             
@@ -46,7 +46,7 @@ include 'includes/header.php';
                 <div class="slide-content" style="padding: 10px 0;">
                     <span class="slide-tagline">PREMIUM BIO-FERTILIZERS</span>
                     <h1 class="slide-title">Nurturing Growth,<br>Naturally</h1>
-                    <a href="products.php" class="btn btn-white">Explore Products</a>
+                    <a href="#fertilizers" class="btn btn-white">Explore Products</a>
                 </div>
             </div>
         </div>
@@ -59,45 +59,183 @@ include 'includes/header.php';
         </div>
     </section>
 
-    <!-- Stats Section -->
-     <!--
-    <section class="stats-section">
+    <!-- Fertilizers Products Section - Auto Moving Carousel -->
+    <section class="section fertilizers-section" id="fertilizers">
         <div class="container">
-            <div class="stats-grid">
-                <div class="stat-card reveal">
-                    <div class="stat-icon">
-                        <i class="fas fa-calendar-check"></i>
+            <div class="section-header reveal">
+                <span class="section-badge">
+                    <i class="fas fa-leaf"></i>
+                    Our Fertilizers
+                </span>
+                <h2 class="section-title">Shop Now at <span>Navyakosh Fertilizers</span></h2>
+                <p class="section-description">
+                    Discover our premium range of organic fertilizers designed for 
+                    gardens, farms, and sustainable agriculture.
+                </p>
+            </div>
+
+            <!-- Auto-Moving Products Carousel -->
+            <div class="fertilizer-carousel-wrapper reveal">
+                <button class="fertilizer-nav fertilizer-prev" aria-label="Previous">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                
+                <div class="fertilizer-carousel">
+                    <div class="fertilizer-carousel-track">
+                        <!-- Product 1: Organic Fertilizers for Garden -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/front.jpeg" alt="Navyakosh Organic Fertilizers for Garden">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh Organic Fertilizers for Garden</h3>
+                                <p class="fertilizer-price">TZS 15,000</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-organic-fertilizer-big-pack" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 2: Microbial Consortium -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/soil-health.jpg" alt="Navyakosh Microbial Consortium">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh Microbial Consortium</h3>
+                                <p class="fertilizer-price">TZS 150,000</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-microbial-consortium" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 3: The Best Organic Fertilizer -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/bio-fertilizer.jpg" alt="Navyakosh the Best Organic Fertilizer">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh the Best Organic Fertilizer</h3>
+                                <p class="fertilizer-price">TZS 15,000</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-the-best-organic-fertilizer" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 4: Organic Fertilizer 50Kg Pack -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/navyakosh-maize.jpeg" alt="Navyakosh Organic Fertilizer 50Kg Pack">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh Organic Fertilizer 50Kg Pack</h3>
+                                <p class="fertilizer-price">TZS 99,900</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-organic-fertilizer-50kg-pack" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 5: Flower Booster -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/fertilizer2.webp" alt="Navyakosh For Flower Booster">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh For Flower Booster</h3>
+                                <p class="fertilizer-price">TZS 26,250</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-for-flower-booster" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 6: Cacti and Succulents -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/fertilizers.webp" alt="Navyakosh For Cacti and Succulents">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh For Cacti and Succulents</h3>
+                                <p class="fertilizer-price">TZS 15,000</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-for-cacti-and-succulents" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
+
+                        <!-- Product 7: Soil Activator -->
+                        <div class="fertilizer-card">
+                            <div class="fertilizer-image">
+                                <img src="images/crops-collage.jpg" alt="Navyakosh Soil Activator and Gardening">
+                            </div>
+                            <div class="fertilizer-content">
+                                <h3 class="fertilizer-title">Navyakosh Soil Activator and Gardening</h3>
+                                <p class="fertilizer-price">TZS 15,000</p>
+                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-soil-activator-and-gardening" target="_blank" class="fertilizer-btn">Buy Now</a>
+                            </div>
+                        </div>
                     </div>
-                    <div class="stat-number" data-count="10">0</div>
-                    <div class="stat-label">Years Experience</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <div class="stat-number" data-count="1000">0</div>
-                    <div class="stat-label">Happy Farmers</div>
-                </div>
-                <div class="stat-card reveal">
-                    <div class="stat-icon">
-                        <i class="fas fa-box-open"></i>
-                    </div>
-                    <div class="stat-number" data-count="3+">0</div>
-                    <div class="stat-label">Products</div>
-                </div>
-              
-                <div class="stat-card reveal">
-                    <div class="stat-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <div class="stat-number" data-count="15">0</div>
-                    <div class="stat-label">Awards Won</div>
                 </div>
 
+                <button class="fertilizer-nav fertilizer-next" aria-label="Next">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+            </div>
+
+            <!-- Carousel Dots -->
+            <div class="fertilizer-dots">
+                <button class="fertilizer-dot active" data-index="0"></button>
+                <button class="fertilizer-dot" data-index="1"></button>
+                <button class="fertilizer-dot" data-index="2"></button>
+                <button class="fertilizer-dot" data-index="3"></button>
+                <button class="fertilizer-dot" data-index="4"></button>
+                <button class="fertilizer-dot" data-index="5"></button>
+                <button class="fertilizer-dot" data-index="6"></button>
+            </div>
+
+            <div style="text-align: center; margin-top: 40px;" class="reveal">
+                <a href="https://www.lcbfertilizers.com" target="_blank" class="btn btn-primary">
+                    <i class="fas fa-shopping-cart"></i>
+                    Shop All Products
+                </a>
             </div>
         </div>
     </section>
-    -->
+
+    <!-- About Section - Mission & Vision -->
+    <section class="section about-mission-vision" id="about">
+        <div class="container">
+            <div class="section-header reveal">
+                <span class="section-badge">
+                    <i class="fas fa-bullseye"></i>
+                    About Us
+                </span>
+                <h2 class="section-title">Our Mission & <span>Vision</span></h2>
+                <p class="section-description">
+                    Navyakosh is committed to sustainable agriculture through innovative 
+                    bio-fertilizer solutions that enhance crop productivity.
+                </p>
+            </div>
+
+            <div class="mission-vision-grid reveal">
+                <div class="mission-card">
+                    <div class="mission-icon">
+                        <i class="fas fa-rocket"></i>
+                    </div>
+                    <h3>Our Mission</h3>
+                    <p>
+                        To empower farmers with innovative, eco-friendly bio-fertilizer solutions that 
+                        enhance crop productivity, restore soil health, and ensure food security for 
+                        future generations. We are committed to making sustainable agriculture accessible 
+                        and profitable for every farmer.
+                    </p>
+                </div>
+
+                <div class="vision-card">
+                    <div class="vision-icon">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3>Our Vision</h3>
+                    <p>
+                        To become the leading provider in bio-fertilizer technology, transforming agricultural 
+                        practices across East Africa through research, innovation, and farmer-centric solutions. 
+                        We envision a world where every farm thrives in harmony with nature.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <!-- Features Section -->
     <section class="section features" id="features">
@@ -179,65 +317,6 @@ include 'includes/header.php';
                         Every batch is tested for efficacy and purity to ensure 
                         consistent results in your fields.
                     </p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Preview Section -->
-    <section class="section" id="about-preview">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-image reveal-left">
-                    <img src="images/fertilizers.webp" alt="Fertilizer application in field">
-                     <!--
-                    <div class="about-image-badge">
-                       <span class="number">10+</span>
-                        <span class="text">Years of Excellence</span>
-                    </div>
-                    -->
-                </div>
-                
-                <div class="about-text reveal-right">
-                    <span class="section-badge">
-                        <i class="fas fa-info-circle"></i>
-                        About Navyakosh
-                    </span>
-                    <h2>Empowering Farmers with <span>Nature's Best</span></h2>
-                    <p>
-                        Navyakosh Bio-Fertilizer represents a new era in sustainable agriculture. 
-                        We combine traditional farming wisdom with cutting-edge biotechnology to 
-                        create products that truly work in harmony with nature.
-                    </p>
-                    <p>
-                        Our mission is to help farmers achieve better yields while preserving 
-                        soil health for future generations. Every product we develop is backed 
-                        by extensive research and field testing.
-                    </p>
-                    
-                    <div class="about-features">
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>100% Organic Solutions</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Research-Backed Formulas</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Expert Support Team</span>
-                        </div>
-                        <div class="about-feature">
-                            <i class="fas fa-check"></i>
-                            <span>Proven Field Results</span>
-                        </div>
-                    </div>
-
-                    <a href="about.php" class="btn btn-primary">
-                        <i class="fas fa-arrow-right"></i>
-                        Learn More About Us
-                    </a>
                 </div>
             </div>
         </div>
@@ -601,211 +680,6 @@ include 'includes/header.php';
             <div class="crop-modal-body"></div>
         </div>
     </div>
-
-    <!-- Products Expertise Carousel Section -->
-    <section class="section expertise-products" id="products-preview">
-        <div class="container">
-            <div class="section-header reveal">
-                <span class="section-badge">
-                    <i class="fas fa-box"></i>
-                    Our Expertise
-                </span>
-                <h2 class="section-title">Navyakosh <span>Organic Fertilizers</span></h2>
-                <p class="section-description">
-                    Discover our range of specialized organic fertilizers designed 
-                    for gardens, flowers, and sustainable agriculture.
-                </p>
-            </div>
-
-            <!-- Products Carousel -->
-            <div class="products-carousel-wrapper reveal">
-                <button class="carousel-nav carousel-prev" aria-label="Previous">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="products-carousel">
-                    <div class="products-carousel-track">
-                        <!-- Soil Activator -->
-                        <div class="carousel-product-card" data-product="soil-activator">
-                            <div class="carousel-product-image">
-                                <img src="images/bio-fertilizer.jpg" alt="Navyakosh Soil Activator">
-                                <span class="product-badge">Popular</span>
-                            </div>
-                            <div class="carousel-product-content">
-                                <span class="product-category">Soil Booster</span>
-                                <h3 class="product-title">Navyakosh Soil Activator</h3>
-                                <p class="product-description">
-                                    Rejuvenate your soil with our unique formula that replenishes essential nutrients, improves soil structure, and enhances microbial activity.
-                                </p>
-                                <a href="product-detail.php?product=soil-activator" class="product-btn">Order Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Flower Booster -->
-                        <div class="carousel-product-card" data-product="flower-booster">
-                            <div class="carousel-product-image">
-                                <img src="images/fertilizer2.webp" alt="Navyakosh Flower Booster">
-                                <span class="product-badge">Best Seller</span>
-                            </div>
-                            <div class="carousel-product-content">
-                                <span class="product-category">Flower Care</span>
-                                <h3 class="product-title">Navyakosh Flower Booster</h3>
-                                <p class="product-description">
-                                    Enhance the beauty of your flowers with our unique mix of nutrients that enriches soil, supports strong root growth, and fosters plentiful blooming.
-                                </p>
-                                <a href="product-detail.php?product=flower-booster" class="product-btn">Order Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Cacti and Succulent -->
-                        <div class="carousel-product-card" data-product="cacti-succulent">
-                            <div class="carousel-product-image">
-                                <img src="images/fertilizers.webp" alt="Navyakosh Cacti and Succulent">
-                                <span class="product-badge">Specialized</span>
-                            </div>
-                            <div class="carousel-product-content">
-                                <span class="product-category">Plant Care</span>
-                                <h3 class="product-title">Navyakosh Cacti & Succulent</h3>
-                                <p class="product-description">
-                                    Formulated to meet the unique nutritional needs of resilient plants, this specialized blend promotes healthy growth and vibrant foliage.
-                                </p>
-                                <a href="product-detail.php?product=cacti-succulent" class="product-btn">Order Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Organic Fertilizer for Garden -->
-                        <div class="carousel-product-card" data-product="garden-fertilizer">
-                            <div class="carousel-product-image">
-                                <img src="images/front.jpeg" alt="Navyakosh Organic Fertilizer for Garden">
-                                <span class="product-badge">1kg Pack</span>
-                            </div>
-                            <div class="carousel-product-content">
-                                <span class="product-category">Garden Care</span>
-                                <h3 class="product-title">Navyakosh for Garden (1kg)</h3>
-                                <p class="product-description">
-                                    Boost your garden with crop-specific organic fertilizer designed for home gardeners who want higher yields, healthier soil, and sustainable farming.
-                                </p>
-                                <a href="product-detail.php?product=garden-fertilizer" class="product-btn">Order Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Microbial Consortium -->
-                        <div class="carousel-product-card" data-product="microbial-consortium">
-                            <div class="carousel-product-image">
-                                <img src="images/soil-health.jpg" alt="Navyakosh Microbial Consortium">
-                                <span class="product-badge">Advanced</span>
-                            </div>
-                            <div class="carousel-product-content">
-                                <span class="product-category">Professional</span>
-                                <h3 class="product-title">Navyakosh Microbial Consortium</h3>
-                                <p class="product-description">
-                                    High-efficiency microbial inoculum with 18-22 beneficial microorganisms. Converts up to 2 metric tons of organic biomass into nutrient-rich biofertilizer.
-                                </p>
-                                <a href="product-detail.php?product=microbial-consortium" class="product-btn">Order Now</a>
-                            </div>
-                        </div>
-
-                        <!-- 50kg Pack -->
-                        <div class="carousel-product-card" data-product="50kg-pack">
-                            <div class="carousel-product-image">
-                                <img src="images/navyakosh-maize.jpeg" alt="Navyakosh Organic Fertilizer 50Kg Pack">
-                                <span class="product-badge">Bulk</span>
-                            </div>
-                            <div class="carousel-product-content">
-                                <span class="product-category">Farm Grade</span>
-                                <h3 class="product-title">Navyakosh 50Kg Pack</h3>
-                                <p class="product-description">
-                                    Boost your farm productivity with our crop-specific organic fertilizer. Designed for farmers who want higher yields and sustainable farming.
-                                </p>
-                                <a href="product-detail.php?product=50kg-pack" class="product-btn">Order Now</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <button class="carousel-nav carousel-next" aria-label="Next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
-
-            <!-- Carousel Dots -->
-            <div class="carousel-dots">
-                <button class="carousel-dot active" data-index="0"></button>
-                <button class="carousel-dot" data-index="1"></button>
-                <button class="carousel-dot" data-index="2"></button>
-                <button class="carousel-dot" data-index="3"></button>
-                <button class="carousel-dot" data-index="4"></button>
-                <button class="carousel-dot" data-index="5"></button>
-            </div>
-
-            <div style="text-align: center; margin-top: 40px;" class="reveal">
-                <a href="products.php" class="btn btn-primary">
-                    <i class="fas fa-th-large"></i>
-                    View All Products
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Keep old products section hidden for backward compatibility -->
-    <section class="section products" id="products-hidden" style="display: none;">
-        <div class="container">
-            <div class="products-grid">
-                <div class="product-card reveal" data-category="organic">
-                    <div class="product-image">
-                        <img src="images/bio-fertilizer.jpg" alt="NPK Bio-Boost">
-                        <span class="product-badge">Popular</span>
-                        <div class="product-actions">
-                            <a href="products.php" class="product-action-btn"><i class="fas fa-eye"></i></a>
-                            <a href="contact.php" class="product-action-btn"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">NPK Fertilizer</span>
-                        <h3 class="product-title">Navyakosh NPK Plus</h3>
-                        <p class="product-description">
-                            Balanced NPK formulation enriched with beneficial bacteria 
-                            for complete plant nutrition.
-                        </p>
-                        <div class="product-meta">
-                            <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card reveal" data-category="liquid">
-                    <div class="product-image">
-                        <img src="images/fertilizer2.webp" alt="Liquid Bio-Fertilizer">
-                        <span class="product-badge">New</span>
-                        <div class="product-actions">
-                            <a href="products.php" class="product-action-btn"><i class="fas fa-eye"></i></a>
-                            <a href="contact.php" class="product-action-btn"><i class="fas fa-envelope"></i></a>
-                        </div>
-                    </div>
-                    <div class="product-content">
-                        <span class="product-category">Liquid Fertilizer</span>
-                        <h3 class="product-title">Navyakosh Liquid Pro</h3>
-                        <p class="product-description">
-                            Fast-acting liquid bio-fertilizer for foliar application 
-                            with immediate nutrient uptake.
-                        </p>
-                        <div class="product-meta">
-                            <span class="product-price">Contact for Price</span>
-                            <a href="contact.php" class="product-btn">Enquire Now</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div style="text-align: center; margin-top: 50px;" class="reveal">
-                <a href="products.php" class="btn btn-primary">
-                    <i class="fas fa-th-large"></i>
-                    View All Products
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- Testimonials Section -->
     <section class="section testimonials" id="testimonials">
