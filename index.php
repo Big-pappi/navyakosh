@@ -59,7 +59,7 @@ include 'includes/header.php';
         </div>
     </section>
 
-    <!-- Fertilizers Products Section - Auto Moving Carousel -->
+    <!-- Fertilizers Products Section -->
     <section class="section fertilizers-section" id="fertilizers">
         <div class="container">
             <div class="section-header reveal">
@@ -67,131 +67,174 @@ include 'includes/header.php';
                     <i class="fas fa-leaf"></i>
                     Our Fertilizers
                 </span>
-                <h2 class="section-title">Shop Now at <span>Navyakosh Fertilizers</span></h2>
+                <h2 class="section-title">Premium <span>Organic Fertilizers</span></h2>
                 <p class="section-description">
-                    Discover our premium range of organic fertilizers designed for 
-                    gardens, farms, and sustainable agriculture.
+                    Discover our range of eco-friendly fertilizers for healthier crops and sustainable farming.
                 </p>
             </div>
 
-            <!-- Auto-Moving Products Carousel -->
-            <div class="fertilizer-carousel-wrapper reveal">
-                <button class="fertilizer-nav fertilizer-prev" aria-label="Previous">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                
-                <div class="fertilizer-carousel">
-                    <div class="fertilizer-carousel-track">
-                        <!-- Product 1: Organic Fertilizers for Garden -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/front.jpeg" alt="Navyakosh Organic Fertilizers for Garden">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh Organic Fertilizers for Garden</h3>
-                                <p class="fertilizer-price">TZS 15,000</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-organic-fertilizer-big-pack" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
+            <!-- Products Grid -->
+            <div class="products-grid reveal">
+                <!-- Product 1 -->
+                <div class="product-card" data-product="Navyakosh Organic Fertilizers for Garden">
+                    <div class="product-image">
+                        <img src="images/front.jpeg" alt="Navyakosh Organic Fertilizers for Garden">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh Organic Fertilizers for Garden">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
                         </div>
-
-                        <!-- Product 2: Microbial Consortium -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/soil-health.jpg" alt="Navyakosh Microbial Consortium">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh Microbial Consortium</h3>
-                                <p class="fertilizer-price">TZS 150,000</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-microbial-consortium" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Product 3: The Best Organic Fertilizer -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/bio-fertilizer.jpg" alt="Navyakosh the Best Organic Fertilizer">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh the Best Organic Fertilizer</h3>
-                                <p class="fertilizer-price">TZS 15,000</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-the-best-organic-fertilizer" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Product 4: Organic Fertilizer 50Kg Pack -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/navyakosh-maize.jpeg" alt="Navyakosh Organic Fertilizer 50Kg Pack">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh Organic Fertilizer 50Kg Pack</h3>
-                                <p class="fertilizer-price">TZS 99,900</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-organic-fertilizer-50kg-pack" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Product 5: Flower Booster -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/fertilizer2.webp" alt="Navyakosh For Flower Booster">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh For Flower Booster</h3>
-                                <p class="fertilizer-price">TZS 26,250</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-for-flower-booster" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Product 6: Cacti and Succulents -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/fertilizers.webp" alt="Navyakosh For Cacti and Succulents">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh For Cacti and Succulents</h3>
-                                <p class="fertilizer-price">TZS 15,000</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-for-cacti-and-succulents" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
-                        </div>
-
-                        <!-- Product 7: Soil Activator -->
-                        <div class="fertilizer-card">
-                            <div class="fertilizer-image">
-                                <img src="images/crops-collage.jpg" alt="Navyakosh Soil Activator and Gardening">
-                            </div>
-                            <div class="fertilizer-content">
-                                <h3 class="fertilizer-title">Navyakosh Soil Activator and Gardening</h3>
-                                <p class="fertilizer-price">TZS 15,000</p>
-                                <a href="https://www.lcbfertilizers.com/product-page/navyakosh-soil-activator-and-gardening" target="_blank" class="fertilizer-btn">Buy Now</a>
-                            </div>
-                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Organic Fertilizers for Garden</h3>
+                        <span class="product-tag">1kg Pack</span>
                     </div>
                 </div>
 
-                <button class="fertilizer-nav fertilizer-next" aria-label="Next">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
+                <!-- Product 2 -->
+                <div class="product-card" data-product="Navyakosh Microbial Consortium">
+                    <div class="product-image">
+                        <img src="images/microbial.jpeg" alt="Navyakosh Microbial Consortium">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh Microbial Consortium">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Microbial Consortium</h3>
+                        <span class="product-tag">1kg Pack</span>
+                    </div>
+                </div>
 
-            <!-- Carousel Dots -->
-            <div class="fertilizer-dots">
-                <button class="fertilizer-dot active" data-index="0"></button>
-                <button class="fertilizer-dot" data-index="1"></button>
-                <button class="fertilizer-dot" data-index="2"></button>
-                <button class="fertilizer-dot" data-index="3"></button>
-                <button class="fertilizer-dot" data-index="4"></button>
-                <button class="fertilizer-dot" data-index="5"></button>
-                <button class="fertilizer-dot" data-index="6"></button>
-            </div>
+                <!-- Product 3 -->
+                <div class="product-card" data-product="Navyakosh the Best Organic Fertilizer">
+                    <div class="product-image">
+                        <img src="images/legume.jpeg" alt="Navyakosh the Best Organic Fertilizer">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh the Best Organic Fertilizer">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Best Organic Fertilizer</h3>
+                        <span class="product-tag">Premium Quality</span>
+                    </div>
+                </div>
 
-            <div style="text-align: center; margin-top: 40px;" class="reveal">
-                <a href="https://www.lcbfertilizers.com" target="_blank" class="btn btn-primary">
-                    <i class="fas fa-shopping-cart"></i>
-                    Shop All Products
-                </a>
+                <!-- Product 4 -->
+                <div class="product-card" data-product="Navyakosh Organic Fertilizer 50Kg Pack">
+                    <div class="product-image">
+                        <img src="images/maize.jpeg" alt="Navyakosh Organic Fertilizer 50Kg Pack">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh Organic Fertilizer 50Kg Pack">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Organic Fertilizer 50Kg</h3>
+                        <span class="product-tag">Bulk Pack</span>
+                    </div>
+                </div>
+
+                <!-- Product 5 -->
+                 <!--
+                <div class="product-card" data-product="Navyakosh For Flower Booster">
+                    <div class="product-image">
+                        <img src="images/flower.jpeg" alt="Navyakosh For Flower Booster">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh For Flower Booster">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Flower Booster</h3>
+                        <span class="product-tag">For Flowering Plants</span>
+                    </div>
+                </div>
+               -->
+
+                <!-- Product 6 -->
+                 <!--
+                <div class="product-card" data-product="Navyakosh For Cacti and Succulents">
+                    <div class="product-image">
+                        <img src="images/succulent.jpeg" alt="Navyakosh For Cacti and Succulents">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh For Cacti and Succulents">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Cacti and Succulents</h3>
+                        <span class="product-tag">Specialized Formula</span>
+                    </div>
+                </div>
+               -->
+
+                <!-- Product 7 -->
+                 <!--
+                <div class="product-card" data-product="Navyakosh Soil Activator and Gardening">
+                    <div class="product-image">
+                        <img src="images/soil-stimulator.jpeg" alt="Navyakosh Soil Activator and Gardening">
+                        <div class="product-overlay">
+                            <button class="order-btn" data-product="Navyakosh Soil Activator and Gardening">
+                                <i class="fas fa-shopping-bag"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="product-info">
+                        <h3>Soil Activator</h3>
+                        <span class="product-tag">For Soil Health</span>
+                    </div>
+                </div>
+            -->
             </div>
         </div>
     </section>
+
+    <!-- Order Modal -->
+    <div class="order-modal" id="orderModal">
+        <div class="order-modal-content">
+            <button class="order-modal-close" id="closeOrderModal">&times;</button>
+            <div class="order-modal-header">
+                <div class="order-modal-icon">
+                    <i class="fas fa-shopping-bag"></i>
+                </div>
+                <h2>Place Your Order</h2>
+                <p id="orderProductName" class="order-product-name"></p>
+            </div>
+            <form class="order-form" id="orderForm" action="process-order.php" method="POST">
+                <input type="hidden" name="product" id="orderProductInput">
+                <div class="form-group">
+                    <label for="customerName"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="customerName" name="name" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerEmail"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="customerEmail" name="email" placeholder="Enter your email" required>
+                </div>
+                <div class="form-group">
+                    <label for="customerPhone"><i class="fas fa-phone"></i> Phone Number</label>
+                    <input type="tel" id="customerPhone" name="phone" placeholder="Enter your phone number" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderQuantity"><i class="fas fa-boxes"></i> Quantity</label>
+                    <input type="number" id="orderQuantity" name="quantity" min="1" value="1" required>
+                </div>
+                <div class="form-group">
+                    <label for="orderMessage"><i class="fas fa-comment"></i> Additional Notes (Optional)</label>
+                    <textarea id="orderMessage" name="message" placeholder="Any special requests or delivery instructions"></textarea>
+                </div>
+                <button type="submit" class="order-submit-btn">
+                    <i class="fas fa-paper-plane"></i> Submit Order
+                </button>
+            </form>
+        </div>
+    </div>
 
     <!-- About Section - Mission & Vision -->
     <section class="section about-mission-vision" id="about">
@@ -416,7 +459,7 @@ include 'includes/header.php';
                 <div class="crop-category-list" data-category="fruits">
                     <div class="crop-list-item" data-crop="mango">
                         <div class="crop-item-image">
-                            <img src="images/navyakosh-horticulture.png" alt="Mango">
+                            <img src="images/mango.jpg" alt="Mango">
                         </div>
                         <div class="crop-item-info">
                             <h4>Mango</h4>
@@ -426,7 +469,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="banana">
                         <div class="crop-item-image">
-                            <img src="images/palm.jpg" alt="Banana">
+                            <img src="images/banana.png" alt="Banana">
                         </div>
                         <div class="crop-item-info">
                             <h4>Banana</h4>
@@ -436,7 +479,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="watermelon">
                         <div class="crop-item-image">
-                            <img src="images/Watermelon.jpg" alt="Watermelon">
+                            <img src="images/watermelon.jpg" alt="Watermelon">
                         </div>
                         <div class="crop-item-info">
                             <h4>Watermelon</h4>
@@ -446,7 +489,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="pomegranate">
                         <div class="crop-item-image">
-                            <img src="images/Horticulture.jpg" alt="Pomegranate">
+                            <img src="images/pomegranate.jpg" alt="Pomegranate">
                         </div>
                         <div class="crop-item-info">
                             <h4>Pomegranate</h4>
@@ -456,7 +499,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="muskmelon">
                         <div class="crop-item-image">
-                            <img src="images/Watermelon2.jpg" alt="Muskmelon">
+                            <img src="images/muskmelon.jpg" alt="Muskmelon">
                         </div>
                         <div class="crop-item-info">
                             <h4>Muskmelon</h4>
@@ -490,7 +533,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="carrot">
                         <div class="crop-item-image">
-                            <img src="images/legume.jpeg" alt="Carrot">
+                            <img src="images/carrot.jpg" alt="Carrot">
                         </div>
                         <div class="crop-item-info">
                             <h4>Carrot</h4>
@@ -500,7 +543,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="radish">
                         <div class="crop-item-image">
-                            <img src="images/legumes.jpg" alt="Radish">
+                            <img src="images/radish.jpg" alt="Radish">
                         </div>
                         <div class="crop-item-info">
                             <h4>Radish</h4>
@@ -510,7 +553,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="cabbage">
                         <div class="crop-item-image">
-                            <img src="images/navyakosh-horticulture.png" alt="Cabbage">
+                            <img src="images/cabbage.jpg" alt="Cabbage">
                         </div>
                         <div class="crop-item-info">
                             <h4>Cabbage</h4>
@@ -530,7 +573,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="brinjal">
                         <div class="crop-item-image">
-                            <img src="images/Horticulture2.jpg" alt="Brinjal">
+                            <img src="images/Brinjal.jpg" alt="Brinjal">
                         </div>
                         <div class="crop-item-info">
                             <h4>Brinjal</h4>
@@ -608,7 +651,7 @@ include 'includes/header.php';
                 <div class="crop-category-list" data-category="other">
                     <div class="crop-list-item" data-crop="cotton">
                         <div class="crop-item-image">
-                            <img src="images/cotton.jpeg" alt="Cotton">
+                            <img src="images/cotton.jpg" alt="Cotton">
                         </div>
                         <div class="crop-item-info">
                             <h4>Cotton</h4>
@@ -658,7 +701,7 @@ include 'includes/header.php';
                     </div>
                     <div class="crop-list-item" data-crop="coconut">
                         <div class="crop-item-image">
-                            <img src="images/palm2.jpg" alt="Coconut">
+                            <img src="images/coconut.jpg" alt="Coconut">
                         </div>
                         <div class="crop-item-info">
                             <h4>Coconut</h4>
@@ -682,6 +725,7 @@ include 'includes/header.php';
     </div>
 
     <!-- Testimonials Section -->
+    <!-- 
     <section class="section testimonials" id="testimonials">
         <div class="container">
             <div class="section-header reveal">
@@ -723,7 +767,7 @@ include 'includes/header.php';
             </div>
         </div>
     </section>
-
+-->
     <!-- CTA Section -->
     <section class="cta">
         <div class="container">

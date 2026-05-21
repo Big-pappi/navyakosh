@@ -504,7 +504,7 @@ include 'includes/header.php';
                             <i class="fas fa-shopping-cart"></i>
                             Order Now
                         </a>
-                        <a href="https://wa.me/255620636893?text=I'm interested in <?php echo urlencode($crop['name']); ?>" 
+                        <a href="https://wa.me/255684316177?text=I'm interested in <?php echo urlencode($crop['name']); ?>" 
                            class="btn btn-outline" style="color: var(--primary); border-color: var(--primary);">
                             <i class="fab fa-whatsapp"></i>
                             WhatsApp Us

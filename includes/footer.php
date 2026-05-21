@@ -11,7 +11,7 @@
                 <div class="footer-brand">
                     <a href="index.php" class="logo">
                         <div class="logo-icon">
-                            <img src="images/logo.png" alt="Navyakosh">
+                            <img src="images/navyakosh.png" alt="Navyakosh">
                         </div>
                        <!-- <span class="logo-text">Navya<span>kosh</span></span>-->
                     </a>
@@ -59,7 +59,7 @@
                     <ul class="footer-contact">
                         <li>
                             <i class="fas fa-map-marker-alt"></i>
-                            <span>Dar es Salaam<br>Tanzania</span>
+                            <span>Dar es Salaam, Tanzania</span>
                         </li>
                         <li>
                             <i class="fas fa-phone"></i>
