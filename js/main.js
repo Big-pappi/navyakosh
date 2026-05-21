@@ -188,13 +188,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
+            // Only handle internal anchor links starting with #
+            if (href && href.startsWith('#') && href !== '#') {
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    e.preventDefault();
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             }
@@ -464,11 +469,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const cropModalTitle = document.querySelector('.crop-modal-crop-name');
     const cropModalBody = document.querySelector('.crop-modal-body');
     
-    // Crop usage data
+    // Crop usage data with brochure information
     const cropUsageData = {
         // Grains
         'paddy': {
             name: 'Paddy',
+            brochure: 'images/cases/Navyakosh for rice.pdf',
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -479,6 +485,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'maize': {
             name: 'Maize',
+            brochure: null, // No brochure available
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -490,6 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'mustard': {
             name: 'Mustard',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -500,6 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'bajra': {
             name: 'Bajra (Pearl Millets)',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -510,6 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'jowar': {
             name: 'Jowar (Great Millets)',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -520,6 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'wheat': {
             name: 'Wheat',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -531,6 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fruits
         'mango': {
             name: 'Mango',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 4-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -541,6 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'banana': {
             name: 'Banana',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 500 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -551,6 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'watermelon': {
             name: 'Watermelon',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -561,6 +575,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'pomegranate': {
             name: 'Pomegranate',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 1-2 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -571,6 +586,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'muskmelon': {
             name: 'Muskmelon',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -581,6 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'tomato': {
             name: 'Tomato',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -592,6 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Vegetables
         'cucumber': {
             name: 'Cucumber',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -603,6 +621,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'carrot': {
             name: 'Carrot',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> By using broadcast pattern apply 4-5 bags per acre during seedbed preparation.</li>
@@ -613,6 +632,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'radish': {
             name: 'Radish',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> By using broadcast pattern apply 4-5 bags per acre during seedbed preparation.</li>
@@ -623,6 +643,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'cabbage': {
             name: 'Cabbage',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -632,6 +653,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'capsicum': {
             name: 'Capsicum',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -642,6 +664,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'brinjal': {
             name: 'Brinjal',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -653,6 +676,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Nuts & Pulses
         'walnut': {
             name: 'Walnut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -663,6 +687,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'groundnut': {
             name: 'Ground Nut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -673,6 +698,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'soybean': {
             name: 'Soya Beans',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -683,6 +709,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'chickpea': {
             name: 'Chickpea Dal',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -693,6 +720,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'turdal': {
             name: 'Tur Dal',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -703,6 +731,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'cashewnut': {
             name: 'Cashew Nut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 3-4 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -713,6 +742,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'arecanut': {
             name: 'Areca Nut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-3 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -724,6 +754,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Other Crops
         'cotton': {
             name: 'Cotton',
+            brochure: 'images/cases/Navyakosh for Cotton.pdf',
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before sowing on the ridges.</li>
@@ -734,6 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'sugarcane': {
             name: 'Sugarcane',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> Apply 5-6 bags per acre in furrows before planting setts.</li>
@@ -744,6 +776,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'palm': {
             name: 'Palm',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -754,6 +787,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'coffee': {
             name: 'Coffee',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -764,6 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'tobacco': {
             name: 'Tobacco',
+            brochure: 'images/cases/Tobacco.pdf',
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -774,6 +809,18 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'coconut': {
             name: 'Coconut',
+            brochure: null,
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'avocado': {
+            name: 'Avocado',
+            brochure: 'images/cases/AVOCADO.pdf',
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -818,9 +865,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (cropData) {
                     cropModalTitle.textContent = cropData.name;
-                    cropModalBody.innerHTML = cropData.content;
+                    
+                    // Build modal content with brochure download and order button
+                    let modalContent = cropData.content;
+                    
+                    // Add action buttons container
+                    let buttonsHtml = '<div class="crop-modal-actions">';
+                    
+                    // Add download brochure button if available
+                    if (cropData.brochure) {
+                        buttonsHtml += `
+                            <a href="${cropData.brochure}" class="crop-modal-download-btn" download target="_blank">
+                                <i class="fas fa-download"></i> Download Brochure
+                            </a>
+                        `;
+                    }
+                    
+                    // Add order button
+                    buttonsHtml += `
+                        <button class="crop-modal-order-btn" data-product="Navyakosh for ${cropData.name}">
+                            <i class="fas fa-shopping-bag"></i> Order Now
+                        </button>
+                    `;
+                    
+                    buttonsHtml += '</div>';
+                    
+                    cropModalBody.innerHTML = modalContent + buttonsHtml;
                     cropModal.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                    
+                    // Add click handler for the order button in crop modal
+                    const cropOrderBtn = cropModalBody.querySelector('.crop-modal-order-btn');
+                    if (cropOrderBtn && orderModal) {
+                        cropOrderBtn.addEventListener('click', function() {
+                            const productName = this.getAttribute('data-product');
+                            // Close crop modal first
+                            cropModal.classList.remove('active');
+                            // Open order modal
+                            if (orderProductName) orderProductName.textContent = productName;
+                            if (orderProductInput) orderProductInput.value = productName;
+                            orderModal.classList.add('active');
+                        });
+                    }
                 }
             });
         });
@@ -963,17 +1049,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const orderProductInput = document.getElementById('orderProductInput');
     const orderForm = document.getElementById('orderForm');
 
-    console.log('[v0] Order modal elements:', { orderModal, orderBtns: orderBtns.length, closeOrderModal });
-
     if (orderModal && orderBtns.length > 0) {
-        console.log('[v0] Setting up order modal for', orderBtns.length, 'buttons');
         // Open modal when clicking order button
         orderBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
                 e.stopPropagation();
                 const productName = this.getAttribute('data-product');
-                console.log('[v0] Order button clicked for:', productName);
                 orderProductName.textContent = productName;
                 orderProductInput.value = productName;
                 orderModal.classList.add('active');

@@ -401,7 +401,12 @@ include 'includes/header.php';
                             <h4>Paddy</h4>
                             <p>Navyakosh for Paddy</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Paddy">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="maize">
                         <div class="crop-item-image">
@@ -411,7 +416,12 @@ include 'includes/header.php';
                             <h4>Maize</h4>
                             <p>Navyakosh for Maize</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Maize">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="mustard">
                         <div class="crop-item-image">
@@ -421,7 +431,12 @@ include 'includes/header.php';
                             <h4>Mustard</h4>
                             <p>Navyakosh for Mustard</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Mustard">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="bajra">
                         <div class="crop-item-image">
@@ -431,7 +446,12 @@ include 'includes/header.php';
                             <h4>Bajra (Pearl Millets)</h4>
                             <p>Navyakosh for Bajra (Pearl Millets)</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Bajra">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="jowar">
                         <div class="crop-item-image">
@@ -441,7 +461,12 @@ include 'includes/header.php';
                             <h4>Jowar (Great Millets)</h4>
                             <p>Navyakosh for Jowar (Great Millets)</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Jowar">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="wheat">
                         <div class="crop-item-image">
@@ -451,7 +476,12 @@ include 'includes/header.php';
                             <h4>Wheat</h4>
                             <p>Navyakosh for Wheat</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Wheat">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -465,7 +495,12 @@ include 'includes/header.php';
                             <h4>Mango</h4>
                             <p>Navyakosh for Mango</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Mango">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="banana">
                         <div class="crop-item-image">
@@ -475,7 +510,12 @@ include 'includes/header.php';
                             <h4>Banana</h4>
                             <p>Navyakosh for Banana</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Banana">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="watermelon">
                         <div class="crop-item-image">
@@ -485,7 +525,12 @@ include 'includes/header.php';
                             <h4>Watermelon</h4>
                             <p>Navyakosh for Watermelon</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Watermelon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="pomegranate">
                         <div class="crop-item-image">
@@ -495,7 +540,12 @@ include 'includes/header.php';
                             <h4>Pomegranate</h4>
                             <p>Navyakosh for Pomegranate</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Pomegranate">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="muskmelon">
                         <div class="crop-item-image">
@@ -505,7 +555,12 @@ include 'includes/header.php';
                             <h4>Muskmelon</h4>
                             <p>Navyakosh for Muskmelon</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Muskmelon">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="tomato">
                         <div class="crop-item-image">
@@ -515,7 +570,12 @@ include 'includes/header.php';
                             <h4>Tomato</h4>
                             <p>Navyakosh for Tomato</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Tomato">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -529,7 +589,12 @@ include 'includes/header.php';
                             <h4>Cucumber</h4>
                             <p>Navyakosh for Cucumber</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Cucumber">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="carrot">
                         <div class="crop-item-image">
@@ -539,7 +604,12 @@ include 'includes/header.php';
                             <h4>Carrot</h4>
                             <p>Navyakosh for Carrot</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Carrot">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="radish">
                         <div class="crop-item-image">
@@ -549,7 +619,12 @@ include 'includes/header.php';
                             <h4>Radish</h4>
                             <p>Navyakosh for Radish</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Radish">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="cabbage">
                         <div class="crop-item-image">
@@ -559,7 +634,12 @@ include 'includes/header.php';
                             <h4>Cabbage</h4>
                             <p>Navyakosh for Cabbage</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Cabbage">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="capsicum">
                         <div class="crop-item-image">
@@ -569,7 +649,12 @@ include 'includes/header.php';
                             <h4>Capsicum</h4>
                             <p>Navyakosh for Capsicum</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Capsicum">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="brinjal">
                         <div class="crop-item-image">
@@ -579,7 +664,12 @@ include 'includes/header.php';
                             <h4>Brinjal</h4>
                             <p>Navyakosh for Brinjal</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Brinjal">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -593,7 +683,12 @@ include 'includes/header.php';
                             <h4>Ground Nut</h4>
                             <p>Navyakosh for Ground Nut</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Ground Nut">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="soybean">
                         <div class="crop-item-image">
@@ -603,7 +698,12 @@ include 'includes/header.php';
                             <h4>Soya Beans</h4>
                             <p>Navyakosh for Soya Beans</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Soya Beans">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="chickpea">
                         <div class="crop-item-image">
@@ -613,7 +713,12 @@ include 'includes/header.php';
                             <h4>Chickpea (Channa Dal)</h4>
                             <p>Navyakosh for Gram Pulse</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Chickpea">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="turdal">
                         <div class="crop-item-image">
@@ -623,7 +728,12 @@ include 'includes/header.php';
                             <h4>Tur Dal</h4>
                             <p>Navyakosh for Tur Dal</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Tur Dal">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="cashewnut">
                         <div class="crop-item-image">
@@ -633,7 +743,12 @@ include 'includes/header.php';
                             <h4>Cashew Nut</h4>
                             <p>Navyakosh for Cashew Nut</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Cashew Nut">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="arecanut">
                         <div class="crop-item-image">
@@ -643,7 +758,12 @@ include 'includes/header.php';
                             <h4>Areca Nut</h4>
                             <p>Navyakosh for Areca Nut</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Areca Nut">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
 
@@ -657,7 +777,12 @@ include 'includes/header.php';
                             <h4>Cotton</h4>
                             <p>Navyakosh for Cotton</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Cotton">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="sugarcane">
                         <div class="crop-item-image">
@@ -667,7 +792,12 @@ include 'includes/header.php';
                             <h4>Sugarcane</h4>
                             <p>Navyakosh for Sugarcane</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Sugarcane">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="palm">
                         <div class="crop-item-image">
@@ -677,7 +807,12 @@ include 'includes/header.php';
                             <h4>Palm</h4>
                             <p>Navyakosh for Palm</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Palm">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="coffee">
                         <div class="crop-item-image">
@@ -687,7 +822,12 @@ include 'includes/header.php';
                             <h4>Coffee</h4>
                             <p>Navyakosh for Coffee</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Coffee">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="tobacco">
                         <div class="crop-item-image">
@@ -697,7 +837,12 @@ include 'includes/header.php';
                             <h4>Tobacco</h4>
                             <p>Navyakosh for Tobacco</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Tobacco">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                     <div class="crop-list-item" data-crop="coconut">
                         <div class="crop-item-image">
@@ -707,7 +852,12 @@ include 'includes/header.php';
                             <h4>Coconut</h4>
                             <p>Navyakosh for Coconut</p>
                         </div>
-                        <button class="crop-read-more-btn">Read More</button>
+                        <div class="crop-item-actions">
+                            <button class="crop-read-more-btn">Read More</button>
+                            <button class="order-btn crop-order-btn" data-product="Navyakosh for Coconut">
+                                <i class="fas fa-shopping-bag"></i>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
