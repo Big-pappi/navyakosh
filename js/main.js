@@ -188,13 +188,18 @@ document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function(e) {
             const href = this.getAttribute('href');
-            if (href !== '#') {
-                e.preventDefault();
+            // Only handle internal anchor links starting with #
+            if (href && href.startsWith('#') && href !== '#') {
                 const target = document.querySelector(href);
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
+                    e.preventDefault();
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                    
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
                     });
                 }
             }
@@ -464,11 +469,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const cropModalTitle = document.querySelector('.crop-modal-crop-name');
     const cropModalBody = document.querySelector('.crop-modal-body');
     
-    // Crop usage data
+    // Crop usage data with brochure information
     const cropUsageData = {
         // Grains
         'paddy': {
             name: 'Paddy',
+            brochure: 'images/cases/Navyakosh for rice.pdf',
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -479,6 +485,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'maize': {
             name: 'Maize',
+            brochure: null, // No brochure available
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -490,6 +497,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'mustard': {
             name: 'Mustard',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -500,6 +508,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'bajra': {
             name: 'Bajra (Pearl Millets)',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -510,6 +519,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'jowar': {
             name: 'Jowar (Great Millets)',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -520,6 +530,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'wheat': {
             name: 'Wheat',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -531,6 +542,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Fruits
         'mango': {
             name: 'Mango',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 4-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -541,6 +553,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'banana': {
             name: 'Banana',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 500 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -551,6 +564,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'watermelon': {
             name: 'Watermelon',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -561,6 +575,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'pomegranate': {
             name: 'Pomegranate',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 1-2 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -571,6 +586,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'muskmelon': {
             name: 'Muskmelon',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -581,6 +597,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'tomato': {
             name: 'Tomato',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -592,6 +609,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Vegetables
         'cucumber': {
             name: 'Cucumber',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -603,6 +621,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'carrot': {
             name: 'Carrot',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> By using broadcast pattern apply 4-5 bags per acre during seedbed preparation.</li>
@@ -613,6 +632,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'radish': {
             name: 'Radish',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> By using broadcast pattern apply 4-5 bags per acre during seedbed preparation.</li>
@@ -623,6 +643,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'cabbage': {
             name: 'Cabbage',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -632,6 +653,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'capsicum': {
             name: 'Capsicum',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -642,6 +664,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'brinjal': {
             name: 'Brinjal',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -653,6 +676,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Nuts & Pulses
         'walnut': {
             name: 'Walnut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -663,6 +687,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'groundnut': {
             name: 'Ground Nut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -673,6 +698,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'soybean': {
             name: 'Soya Beans',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -683,6 +709,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'chickpea': {
             name: 'Chickpea Dal',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -693,6 +720,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'turdal': {
             name: 'Tur Dal',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before seed sowing.</li>
@@ -703,6 +731,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'cashewnut': {
             name: 'Cashew Nut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 3-4 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -713,6 +742,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'arecanut': {
             name: 'Areca Nut',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-3 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -724,6 +754,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Other Crops
         'cotton': {
             name: 'Cotton',
+            brochure: 'images/cases/Navyakosh for Cotton.pdf',
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> By using broadcast pattern apply 4-5 bags per acre during land preparation just before sowing on the ridges.</li>
@@ -734,6 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'sugarcane': {
             name: 'Sugarcane',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>1st Application:</strong> Apply 5-6 bags per acre in furrows before planting setts.</li>
@@ -744,6 +776,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'palm': {
             name: 'Palm',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -754,6 +787,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'coffee': {
             name: 'Coffee',
+            brochure: null,
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -764,6 +798,7 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'tobacco': {
             name: 'Tobacco',
+            brochure: 'images/cases/Tobacco.pdf',
             content: `
                 <ul>
                     <li><strong>Application:</strong> Apply 50 grams Navyakosh Organic Fertilizer per plant at the base during seedling transplantation.</li>
@@ -774,6 +809,18 @@ document.addEventListener('DOMContentLoaded', function() {
         },
         'coconut': {
             name: 'Coconut',
+            brochure: null,
+            content: `
+                <ul>
+                    <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
+                    <li><strong>Mechanism:</strong> Active microorganisms in the fertilizer (Mycorrhiza (VAM), Phosphate Solubilizing Bacteria, Azospirillum, Potassium Mobilizing Biofertilizer (KMB), Pseudomonas, etc.) get activated and help plants to get and utilize all macro and micronutrients throughout the crop cycle.</li>
+                    <li><strong>Note:</strong> Apply 500 gram fertilizer per plant at the base during seedling transplantation.</li>
+                </ul>
+            `
+        },
+        'avocado': {
+            name: 'Avocado',
+            brochure: 'images/cases/AVOCADO.pdf',
             content: `
                 <ul>
                     <li><strong>Application:</strong> Dig a ring around stem, apply 2-5 kg of Navyakosh Organic fertilizer and cover it with soil.</li>
@@ -818,9 +865,48 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 if (cropData) {
                     cropModalTitle.textContent = cropData.name;
-                    cropModalBody.innerHTML = cropData.content;
+                    
+                    // Build modal content with brochure download and order button
+                    let modalContent = cropData.content;
+                    
+                    // Add action buttons container
+                    let buttonsHtml = '<div class="crop-modal-actions">';
+                    
+                    // Add download brochure button if available
+                    if (cropData.brochure) {
+                        buttonsHtml += `
+                            <a href="${cropData.brochure}" class="crop-modal-download-btn" download target="_blank">
+                                <i class="fas fa-download"></i> Download Brochure
+                            </a>
+                        `;
+                    }
+                    
+                    // Add order button
+                    buttonsHtml += `
+                        <button class="crop-modal-order-btn" data-product="Navyakosh for ${cropData.name}">
+                            <i class="fas fa-shopping-bag"></i> Order Now
+                        </button>
+                    `;
+                    
+                    buttonsHtml += '</div>';
+                    
+                    cropModalBody.innerHTML = modalContent + buttonsHtml;
                     cropModal.classList.add('active');
                     document.body.style.overflow = 'hidden';
+                    
+                    // Add click handler for the order button in crop modal
+                    const cropOrderBtn = cropModalBody.querySelector('.crop-modal-order-btn');
+                    if (cropOrderBtn && orderModal) {
+                        cropOrderBtn.addEventListener('click', function() {
+                            const productName = this.getAttribute('data-product');
+                            // Close crop modal first
+                            cropModal.classList.remove('active');
+                            // Open order modal
+                            if (orderProductName) orderProductName.textContent = productName;
+                            if (orderProductInput) orderProductInput.value = productName;
+                            orderModal.classList.add('active');
+                        });
+                    }
                 }
             });
         });
@@ -954,103 +1040,96 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // ===================================
-    // FERTILIZER AUTO-MOVING CAROUSEL
+    // ORDER MODAL FUNCTIONALITY
     // ===================================
-    const fertilizerCarousel = document.querySelector('.fertilizer-carousel');
-    const fertilizerCarouselTrack = document.querySelector('.fertilizer-carousel-track');
-    const fertilizerCards = document.querySelectorAll('.fertilizer-card');
-    const fertilizerPrev = document.querySelector('.fertilizer-prev');
-    const fertilizerNext = document.querySelector('.fertilizer-next');
-    const fertilizerDots = document.querySelectorAll('.fertilizer-dot');
-    
-    if (fertilizerCarouselTrack && fertilizerCards.length > 0) {
-        let fertilizerCurrentIndex = 0;
-        let fertilizerAutoSlideInterval;
-        const fertilizerAutoSlideDelay = 3000; // 3 seconds for smooth auto-scroll
-        
-        function getFertilizerCardsPerView() {
-            const screenWidth = window.innerWidth;
-            if (screenWidth >= 1200) return 4;
-            if (screenWidth >= 992) return 3;
-            if (screenWidth >= 768) return 2;
-            return 1;
-        }
-        
-        function updateFertilizerCarousel() {
-            const fertilizerCardsPerView = getFertilizerCardsPerView();
-            const maxIndex = Math.max(0, fertilizerCards.length - fertilizerCardsPerView);
-            
-            if (fertilizerCurrentIndex > maxIndex) {
-                fertilizerCurrentIndex = maxIndex;
-            }
-            
-            const cardWidth = fertilizerCards[0].offsetWidth + 25; // Include gap
-            const offset = -fertilizerCurrentIndex * cardWidth;
-            fertilizerCarouselTrack.style.transform = `translateX(${offset}px)`;
-            
-            // Update dots
-            fertilizerDots.forEach((dot, index) => {
-                dot.classList.toggle('active', index === fertilizerCurrentIndex);
-            });
-        }
-        
-        function nextFertilizerSlide() {
-            const fertilizerCardsPerView = getFertilizerCardsPerView();
-            const maxIndex = Math.max(0, fertilizerCards.length - fertilizerCardsPerView);
-            fertilizerCurrentIndex = (fertilizerCurrentIndex + 1) > maxIndex ? 0 : fertilizerCurrentIndex + 1;
-            updateFertilizerCarousel();
-        }
-        
-        function prevFertilizerSlide() {
-            const fertilizerCardsPerView = getFertilizerCardsPerView();
-            const maxIndex = Math.max(0, fertilizerCards.length - fertilizerCardsPerView);
-            fertilizerCurrentIndex = (fertilizerCurrentIndex - 1) < 0 ? maxIndex : fertilizerCurrentIndex - 1;
-            updateFertilizerCarousel();
-        }
-        
-        function startFertilizerAutoSlide() {
-            fertilizerAutoSlideInterval = setInterval(nextFertilizerSlide, fertilizerAutoSlideDelay);
-        }
-        
-        function stopFertilizerAutoSlide() {
-            clearInterval(fertilizerAutoSlideInterval);
-        }
-        
-        // Event listeners for navigation
-        if (fertilizerNext) {
-            fertilizerNext.addEventListener('click', function() {
-                stopFertilizerAutoSlide();
-                nextFertilizerSlide();
-                startFertilizerAutoSlide();
-            });
-        }
-        
-        if (fertilizerPrev) {
-            fertilizerPrev.addEventListener('click', function() {
-                stopFertilizerAutoSlide();
-                prevFertilizerSlide();
-                startFertilizerAutoSlide();
-            });
-        }
-        
-        fertilizerDots.forEach((dot, index) => {
-            dot.addEventListener('click', function() {
-                stopFertilizerAutoSlide();
-                fertilizerCurrentIndex = index;
-                updateFertilizerCarousel();
-                startFertilizerAutoSlide();
+    const orderModal = document.getElementById('orderModal');
+    const orderBtns = document.querySelectorAll('.order-btn');
+    const closeOrderModal = document.getElementById('closeOrderModal');
+    const orderProductName = document.getElementById('orderProductName');
+    const orderProductInput = document.getElementById('orderProductInput');
+    const orderForm = document.getElementById('orderForm');
+
+    if (orderModal && orderBtns.length > 0) {
+        // Open modal when clicking order button
+        orderBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                const productName = this.getAttribute('data-product');
+                orderProductName.textContent = productName;
+                orderProductInput.value = productName;
+                orderModal.classList.add('active');
+                document.body.style.overflow = 'hidden';
             });
         });
-        
-        // Initialize
-        updateFertilizerCarousel();
-        startFertilizerAutoSlide();
-        
-        // Update on resize
-        window.addEventListener('resize', updateFertilizerCarousel);
-        
-        // Pause on hover
-        fertilizerCarousel.addEventListener('mouseenter', stopFertilizerAutoSlide);
-        fertilizerCarousel.addEventListener('mouseleave', startFertilizerAutoSlide);
+
+        // Close modal
+        if (closeOrderModal) {
+            closeOrderModal.addEventListener('click', function() {
+                orderModal.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        }
+
+        // Close modal when clicking outside
+        orderModal.addEventListener('click', function(e) {
+            if (e.target === orderModal) {
+                orderModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape' && orderModal.classList.contains('active')) {
+                orderModal.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+
+        // Form submission
+        if (orderForm) {
+            orderForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = new FormData(orderForm);
+                const data = Object.fromEntries(formData.entries());
+                
+                // Show loading state
+                const submitBtn = orderForm.querySelector('.order-submit-btn');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
+                submitBtn.disabled = true;
+                
+                // Send form via fetch
+                fetch('process-order.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(result => {
+                    if (result.success) {
+                        // Show success
+                        orderModal.querySelector('.order-modal-content').innerHTML = `
+                            <div style="text-align: center; padding: 60px 30px;">
+                                <div style="width: 80px; height: 80px; border-radius: 50%; background: linear-gradient(135deg, #1e7b3c, #155c2c); display: flex; align-items: center; justify-content: center; margin: 0 auto 24px; color: white; font-size: 2rem;">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <h2 style="color: #1e7b3c; margin-bottom: 12px;">Order Submitted!</h2>
+                                <p style="color: #666; margin-bottom: 24px;">Thank you for your order. We will contact you shortly.</p>
+                                <button onclick="location.reload()" style="background: #1e7b3c; color: white; border: none; padding: 14px 32px; border-radius: 8px; cursor: pointer; font-weight: 600;">Close</button>
+                            </div>
+                        `;
+                    } else {
+                        throw new Error(result.message || 'Order failed');
+                    }
+                })
+                .catch(error => {
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                    alert('There was an error processing your order. Please try again or contact us directly.');
+                });
+            });
+        }
     }
 });
